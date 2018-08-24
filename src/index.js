@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import YTSearch from 'youtube-api-search';
 import SearchBar from './components/search_bar';
-import VideoList from './components/video_list'
-import VideoDetail from './components/video_detail'
+import VideoList from './components/video_list';
+import VideoDetail from './components/video_detail';
 
 const API_KEY = 'AIzaSyD-CXa5zq84ScwCZQcAvMNy2jXgw9aNUMc';
 
@@ -33,11 +33,16 @@ class App extends Component {
     const videoSearch = _.debounce((term) => {this.videoSearch(term)}, 300);
     return (
       <div>
+        <div>
         <SearchBar onSearchTermChange={videoSearch}/>
-        <VideoDetail video={this.state.selectedVideo}/>
-        <VideoList
-          onVideoSelect={selectedVideo => this.setState({selectedVideo})}
-          videos={this.state.videos}/>
+          <VideoDetail video={this.state.selectedVideo}/>
+          <VideoList
+            onVideoSelect={selectedVideo => this.setState({selectedVideo})}
+            videos={this.state.videos}/>
+        </div>
+        <div>
+          
+        </div>
       </div>
     );
   }
