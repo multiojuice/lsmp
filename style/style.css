@@ -31,6 +31,18 @@ body {
   background-color: #BBCCDD !important;
 }
 
+.title {
+  margin-top: 20px;
+  margin-left: 15%;
+  color: #448899;
+  font-size: 2em;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.title b {
+  font-size: 5em;
+}
+
 .search-bar {
   margin: 20px;
   text-align: center;
