@@ -1,3 +1,36 @@
+.skewed-background {
+  padding: 200px 0;
+  -webkit-transform: skew(0deg, -10deg);
+  transform: skew(0deg, -10deg);
+  height: 30%;
+  z-index: -10;
+  position: relative;
+}
+
+.background-standard {
+  background: #BBCCDD;
+}
+
+.background-light {
+  background: #88BBBB;
+}
+
+.background-medium {
+  background: #55AAAA;
+}
+
+.background-dark {
+  background: #226666;
+}
+
+.background-base {
+  background: #448899;
+}
+
+body {
+  background-color: #BBCCDD !important;
+}
+
 .search-bar {
   margin: 20px;
   text-align: center;

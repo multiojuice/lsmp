@@ -40,12 +40,16 @@ class App extends Component {
             onVideoSelect={selectedVideo => this.setState({selectedVideo})}
             videos={this.state.videos}/>
         </div>
-        <div>
-          
-        </div>
+        <div className='skewed-background background-light'/>
+        <div className='skewed-background background-medium'/>
+        <div className='skewed-background background-dark'/>
+        <div className='skewed-background background-standard'/>
+        <div className='skewed-background background-light'/>
+        <div className='skewed-background background-medium'/>
+        <div className='skewed-background background-dark'/>
       </div>
     );
   }
 }
 
-ReactDOM.render(<App />, document.querySelector('.container'));
+ReactDOM.render(<App />, document.querySelector('.app'));
