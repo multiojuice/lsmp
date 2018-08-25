@@ -19,6 +19,15 @@
   margin: 20px;
 }
 
+.spotify-item-div:hover {
+    -webkit-filter: brightness(30%);
+    -webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    -o-transition: all .5s ease;
+    -ms-transition: all .5s ease;
+    transition: all .5s ease;
+}
+
 .spotify-logo {
   height: 100px;
 }
