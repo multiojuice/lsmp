@@ -61,8 +61,9 @@ class App extends Component {
           <button onClick={this.handleSearch}>List it!</button>
         </div>
         <div className='content-container'>
-          <SpotifyContent
-            searchTerm={this.state.searchTerm} />
+          <VideoList
+            onVideoSelect={selectedVideo => this.setState({selectedVideo})}
+            videos={this.state.videos}/>
         </div>
         <div className='content-container'>
           <SpotifyContent
