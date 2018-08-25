@@ -7,6 +7,27 @@
   position: relative;
 }
 
+.content-container {
+  width: 800px;
+  height: 800px;
+  margin: 20px;
+  float: left;
+}
+
+.spotify-item-div {
+  float: left;
+  margin: 20px;
+}
+
+.spotify-logo {
+  height: 100px;
+}
+
+.whole-background {
+  top: 0px !important;
+  left: 0px !important;
+}
+
 .background-standard {
   background: #BBCCDD;
 }

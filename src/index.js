@@ -20,9 +20,8 @@ class App extends Component {
     this.state = {
       videos: [],
       selectedVideo: null,
-      searchTerm: 'surfing'
+      searchTerm: ''
     };
-    this.videoSearch('surfing');
     //this.getAuthTokens();
     this.handleTermChange = this.handleTermChange.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
@@ -40,7 +39,7 @@ class App extends Component {
   }
 
   handleSearch() {
-    this.videoSearch(this.tempTerm);
+    this.videoSearch(this.state.tempTerm);
     this.setState({ searchTerm: this.state.tempTerm })
   }
 
@@ -61,24 +60,24 @@ class App extends Component {
           <SearchBar onSearchTermChange={this.handleTermChange} />
           <button onClick={this.handleSearch}>List it!</button>
         </div>
-        <div>
-          <VideoDetail video={this.state.selectedVideo}/>
-          <VideoList
-            onVideoSelect={selectedVideo => this.setState({selectedVideo})}
-            videos={this.state.videos}/>
+        <div className='content-container'>
+          <SpotifyContent
+            searchTerm={this.state.searchTerm} />
         </div>
-        <div>
+        <div className='content-container'>
           <SpotifyContent
             searchTerm={this.state.searchTerm} />
         </div>
         <a href="https://accounts.spotify.com/authorize?client_id=7c4ef6453595449ea792b8f54c79bcfe&redirect_uri=http:%2F%2Flocalhost:8080%2F&response_type=token">Visit our HTML tutorial</a>
-        <div className='skewed-background background-light'/>
-        <div className='skewed-background background-medium'/>
-        <div className='skewed-background background-dark'/>
-        <div className='skewed-background background-standard'/>
-        <div className='skewed-background background-light'/>
-        <div className='skewed-background background-medium'/>
-        <div className='skewed-background background-dark'/>
+        <div className='whole-background'>
+          <div className='skewed-background background-light'/>
+          <div className='skewed-background background-medium'/>
+          <div className='skewed-background background-dark'/>
+          <div className='skewed-background background-standard'/>
+          <div className='skewed-background background-light'/>
+          <div className='skewed-background background-medium'/>
+          <div className='skewed-background background-dark'/>
+        </div>
       </div>
     );
   }

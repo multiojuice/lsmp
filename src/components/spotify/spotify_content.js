@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import SpotifyItem from './spotify_item';
+import SpotifyLogo from '../../assets/SpotifyLogo.png';
 
 const AUTH_TOKEN = '';
 
@@ -26,11 +27,11 @@ class SpotifyContent extends Component {
                 albumLink={item.external_urls.spotify}
               />;
     });
-    return <ul>{items}</ul>
+    return items;
   }
 
   getContent(searchTerm) {
-    axios.get(`https://api.spotify.com/v1/search?q=${searchTerm}&type=album&limit=5`, { headers: { Authorization: 'Bearer ' + AUTH_TOKEN } })
+    axios.get(`https://api.spotify.com/v1/search?q=${searchTerm}&type=album&limit=4`, { headers: { Authorization: 'Bearer ' + AUTH_TOKEN } })
     .then(content => { console.log(content); this.setState({ content, prevSearchTerm: searchTerm })});
   }
 
@@ -39,7 +40,14 @@ class SpotifyContent extends Component {
 
     if (!this.state.content) return null;
 
-    return this.renderItems();
+    return (
+      <div>
+        <div style={{width: '100%'}}>
+          <img className='spotify-logo' src={SpotifyLogo}/>
+        </div>
+        {this.renderItems()}
+      </div>
+    );
   }
 
 };
