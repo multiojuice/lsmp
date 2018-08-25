@@ -5,6 +5,7 @@ import YTSearch from 'youtube-api-search';
 import SearchBar from './components/search_bar';
 import VideoList from './components/video_list';
 import VideoDetail from './components/video_detail';
+import SpotifyContent from './components/spotify_content';
 
 const API_KEY = 'AIzaSyD-CXa5zq84ScwCZQcAvMNy2jXgw9aNUMc';
 
@@ -15,13 +16,20 @@ class App extends Component {
 
     this.state = {
       videos: [],
-      selectedVideo: null
+      selectedVideo: null,
+      searchTerm: 'surfing'
     };
     this.videoSearch('surfing');
+    this.handleSearchChange = this.handleSearchChange.bind(this);
   }
 
-  videoSearch(term) {
-    YTSearch({key: API_KEY, term: term}, (videos) => {
+  handleSearchChange(searchTerm) {
+    this.setState({searchTerm});
+    this.videoSearch(searchTerm);
+  }
+
+  videoSearch(searchTerm) {
+    YTSearch({key: API_KEY, term: searchTerm}, (videos) => {
       this.setState({
         videos: videos,
         selectedVideo: videos[0]
@@ -30,17 +38,22 @@ class App extends Component {
   }
 
   render() {
-    const videoSearch = _.debounce((term) => {this.videoSearch(term)}, 300);
+    const videoSearch = _.debounce((searchTerm) => {this.videoSearch(searchTerm)}, 300);
     return (
       <div>
         <h1 className='title'><b>L|S|M|P</b> ~ list media please</h1>
         <div>
-        <SearchBar onSearchTermChange={videoSearch}/>
-          <VideoDetail video={this.state.selectedVideo}/>
+        <SearchBar onSearchTermChange={this.handleSearchChange} />
+          <VideoDetail video={this.state.selectedVideo} />
           <VideoList
             onVideoSelect={selectedVideo => this.setState({selectedVideo})}
-            videos={this.state.videos}/>
+            videos={this.state.videos} />
         </div>
+        <div>
+          <SpotifyContent
+            searchTerm={this.state.searchTerm} />
+        </div>
+
         <div className='skewed-background background-light'/>
         <div className='skewed-background background-medium'/>
         <div className='skewed-background background-dark'/>
