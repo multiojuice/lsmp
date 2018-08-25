@@ -1,11 +1,14 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
+import axios from 'axios';
 import ReactDOM from 'react-dom';
 import YTSearch from 'youtube-api-search';
 import SearchBar from './components/search_bar';
 import VideoList from './components/video_list';
 import VideoDetail from './components/video_detail';
-import SpotifyContent from './components/spotify_content';
+import SpotifyContent from './components/spotify/spotify_content';
+import GithubContent from './components/github_content';
+
 
 const API_KEY = 'AIzaSyD-CXa5zq84ScwCZQcAvMNy2jXgw9aNUMc';
 
@@ -20,12 +23,25 @@ class App extends Component {
       searchTerm: 'surfing'
     };
     this.videoSearch('surfing');
-    this.handleSearchChange = this.handleSearchChange.bind(this);
+    //this.getAuthTokens();
+    this.handleTermChange = this.handleTermChange.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
+    this.getAuthTokens = this.getAuthTokens.bind(this);
   }
 
-  handleSearchChange(searchTerm) {
-    this.setState({searchTerm});
-    this.videoSearch(searchTerm);
+  getAuthTokens() {
+    axios.get('https://accounts.spotify.com/authorize/?client_id=7c4ef6453595449ea792b8f54c79bcfe&response_type=code&redirect_uri=localhost%3A8080&scope=user-read-private%20user-read-email',
+    { headers: { 'Access-Control-Allow-Origin' : '*' } } )
+    .then(response => console.warn(response));
+  }
+
+  handleTermChange(tempTerm) {
+    this.setState({tempTerm});
+  }
+
+  handleSearch() {
+    this.videoSearch(this.tempTerm);
+    this.setState({ searchTerm: this.state.tempTerm })
   }
 
   videoSearch(searchTerm) {
@@ -38,22 +54,24 @@ class App extends Component {
   }
 
   render() {
-    const videoSearch = _.debounce((searchTerm) => {this.videoSearch(searchTerm)}, 300);
     return (
       <div>
         <h1 className='title'><b>L|S|M|P</b> ~ list media please</h1>
         <div>
-        <SearchBar onSearchTermChange={this.handleSearchChange} />
-          <VideoDetail video={this.state.selectedVideo} />
+          <SearchBar onSearchTermChange={this.handleTermChange} />
+          <button onClick={this.handleSearch}>List it!</button>
+        </div>
+        <div>
+          <VideoDetail video={this.state.selectedVideo}/>
           <VideoList
             onVideoSelect={selectedVideo => this.setState({selectedVideo})}
-            videos={this.state.videos} />
+            videos={this.state.videos}/>
         </div>
         <div>
           <SpotifyContent
             searchTerm={this.state.searchTerm} />
         </div>
-
+        <a href="https://accounts.spotify.com/authorize?client_id=7c4ef6453595449ea792b8f54c79bcfe&redirect_uri=http:%2F%2Flocalhost:8080%2F&response_type=token">Visit our HTML tutorial</a>
         <div className='skewed-background background-light'/>
         <div className='skewed-background background-medium'/>
         <div className='skewed-background background-dark'/>
