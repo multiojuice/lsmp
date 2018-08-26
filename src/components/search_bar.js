@@ -6,6 +6,13 @@ class SearchBar extends Component{
     super(props);
 
     this.state = { searchTerm: '' };
+    this.handleKeyPress = this.handleKeyPress.bind(this);
+  }
+
+  handleKeyPress(e) {
+    if (e.key === 'Enter') {
+      this.props.handleClick();
+    }
   }
 
   render() {
@@ -13,7 +20,9 @@ class SearchBar extends Component{
       <div className="search-bar">
         <input
           value={this.state.searchTerm}
-          onChange={event => this.onInputChange(event.target.value)} />
+          onChange={event => this.onInputChange(event.target.value)}
+          onKeyPress={this.handleKeyPress}/>
+        <button onClick={() => this.props.handleClick()}>List it!</button>
       </div>
     );
   }

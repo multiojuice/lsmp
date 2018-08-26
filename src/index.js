@@ -59,8 +59,9 @@ class App extends Component {
       <div>
         <h1 className='title'><b>L|S|M|P</b> ~ list media please</h1>
         <div>
-          <SearchBar onSearchTermChange={this.handleTermChange} />
-          <button onClick={this.handleSearch}>List it!</button>
+          <SearchBar
+            handleClick={this.handleSearch}
+            onSearchTermChange={this.handleTermChange} />
         </div>
         <SelectedContent
           type={this.state.selectedType}
