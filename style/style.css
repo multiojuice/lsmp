@@ -7,9 +7,20 @@
   position: relative;
 }
 
+.selected-content {
+  height: 600px;
+  background-color: gray;
+  margin: 60px;
+  padding: 30px;
+}
+
+.selected-content .spotify-div {
+  margin-bottom: 30px;
+}
+
 .content-container {
   width: 800px;
-  height: 800px;
+  height: 700px;
   margin: 20px;
   float: left;
 }
@@ -17,6 +28,12 @@
 .spotify-item-div {
   float: left;
   margin: 20px;
+  position: relative;
+  height: 300px
+}
+
+.spotify-item-details {
+  width: 100%;
 }
 
 .spotify-item-div:hover {
@@ -29,7 +46,7 @@
 }
 
 .spotify-logo {
-  height: 100px;
+  height: 70px;
 }
 
 .youtube-item-div {
@@ -38,7 +55,7 @@
 }
 
 .youtube-logo {
-  height: 100px;
+  height: 70px;
 }
 
 .whole-background {

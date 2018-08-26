@@ -1,10 +1,10 @@
 import React from 'react';
 
-const SpotifyItem = ({ imageUrl, artistLink, artistName, albumLink, albumName}) => {
+const SpotifyItem = ({ id, imageUrl, artistLink, artistName, artistId, albumLink, albumName, onSelectContent}) => {
 
   return (
-      <div className='spotify-item-div'>
-        <a href={albumLink}><img src={imageUrl}/></a>
+      <div onClick={() => onSelectContent('spotify',{id, imageUrl, artistName, artistId, albumLink})} className='spotify-item-div'>
+        <img src={imageUrl}/>
       </div>
   );
 };

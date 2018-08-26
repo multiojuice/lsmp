@@ -10,7 +10,8 @@ class SpotifyContent extends Component {
     super(props);
     this.state = {
       content : null,
-      prevSearchTerm: this.props.searchTerm
+      prevSearchTerm: this.props.searchTerm,
+      onSelectContent: this.props.onSelectContent
     }
 
     this.getContent = this.getContent.bind(this);
@@ -19,10 +20,13 @@ class SpotifyContent extends Component {
   renderItems() {
     const items = this.state.content.data.albums.items.map( item => {
       return <SpotifyItem
+                onSelectContent={this.state.onSelectContent}
                 key={item.id}
+                id={item.id}
                 imageUrl={item.images[1].url}
                 artistName={item.artists[0].name}
                 artistLink={item.artists[0].external_urls.spotify}
+                artistId={item.artists[0].id}
                 albumName={item.name}
                 albumLink={item.external_urls.spotify}
               />;

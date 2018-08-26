@@ -8,6 +8,7 @@ import VideoList from './components/video_list';
 import VideoDetail from './components/video_detail';
 import SpotifyContent from './components/spotify/spotify_content';
 import GithubContent from './components/github_content';
+import SelectedContent from './components/selected_content';
 
 
 const API_KEY = 'AIzaSyD-CXa5zq84ScwCZQcAvMNy2jXgw9aNUMc';
@@ -20,7 +21,9 @@ class App extends Component {
     this.state = {
       videos: [],
       selectedVideo: null,
-      searchTerm: ''
+      searchTerm: '',
+      selectedType: '',
+      selectedData: null
     };
     //this.getAuthTokens();
     this.handleTermChange = this.handleTermChange.bind(this);
@@ -60,6 +63,10 @@ class App extends Component {
           <SearchBar onSearchTermChange={this.handleTermChange} />
           <button onClick={this.handleSearch}>List it!</button>
         </div>
+        <SelectedContent
+          type={this.state.selectedType}
+          data={this.state.selectedData}
+          />
         <div className='content-container'>
           <VideoList
             onVideoSelect={selectedVideo => this.setState({selectedVideo})}
@@ -67,9 +74,10 @@ class App extends Component {
         </div>
         <div className='content-container'>
           <SpotifyContent
+            onSelectContent={(selectedType,selectedData) => this.setState({ selectedType, selectedData })}
             searchTerm={this.state.searchTerm} />
         </div>
-        <a href="https://accounts.spotify.com/authorize?client_id=7c4ef6453595449ea792b8f54c79bcfe&redirect_uri=http:%2F%2Flocalhost:8080%2F&response_type=token">Visit our HTML tutorial</a>
+        <a href="https://accounts.spotify.com/authorize?client_id=7c4ef6453595449ea792b8f54c79bcfe&redirect_uri=http:%2F%2Flocalhost:8080%2F&response_type=token">Temporary spotify auth</a>
         <div className='whole-background'>
           <div className='skewed-background background-light'/>
           <div className='skewed-background background-medium'/>
