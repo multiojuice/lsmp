@@ -60,7 +60,7 @@ class SpotifyContent extends Component {
         <div>
           <div style={{width: '100%'}}>
             <img className='spotify-logo' src={SpotifyLogo} />
-            <a href="https://accounts.spotify.com/authorize?client_id=7c4ef6453595449ea792b8f54c79bcfe&redirect_uri=http:%2F%2Flocalhost:8080%2F&response_type=token">Click here to enable spotify</a>
+            <a href={`https://accounts.spotify.com/authorize?client_id=7c4ef6453595449ea792b8f54c79bcfe&redirect_uri=http:%2F%2F${window.location.host}%2F&response_type=token`}>Click here to enable spotify</a>
           </div>
         </div>
       );
