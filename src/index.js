@@ -77,7 +77,6 @@ class App extends Component {
             onSelectContent={(selectedType,selectedData) => this.setState({ selectedType, selectedData })}
             searchTerm={this.state.searchTerm} />
         </div>
-        <a href="https://accounts.spotify.com/authorize?client_id=7c4ef6453595449ea792b8f54c79bcfe&redirect_uri=http:%2F%2Flocalhost:8080%2F&response_type=token">Temporary spotify auth</a>
         <div className='whole-background'>
           <div className='skewed-background background-light'/>
           <div className='skewed-background background-medium'/>
