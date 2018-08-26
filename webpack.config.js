@@ -25,11 +25,16 @@ module.exports = {
     extensions: ['', '.js', '.jsx']
   },
   devServer: {
+    host: '0.0.0.0',
     historyApiFallback: true,
     contentBase: './',
     watchOptions: {
       aggregateTimeout: 300,
       poll: 1000
-    }
+    },
+    allowedHosts: [
+      '.csh.rit.edu',
+      'localhost'
+    ]
   }
 };
