@@ -4,8 +4,7 @@ import axios from 'axios';
 import ReactDOM from 'react-dom';
 import YTSearch from 'youtube-api-search';
 import SearchBar from './components/search_bar';
-import VideoList from './components/video_list';
-import VideoDetail from './components/video_detail';
+import YoutubeContent from './components/youtube/youtube_content';
 import SpotifyContent from './components/spotify/spotify_content';
 import GithubContent from './components/github_content';
 import SelectedContent from './components/selected_content';
@@ -43,7 +42,7 @@ class App extends Component {
 
   handleSearch() {
     this.videoSearch(this.state.tempTerm);
-    this.setState({ searchTerm: this.state.tempTerm })
+    this.setState({ searchTerm: this.state.tempTerm, selectedType: '', selectedData: null })
   }
 
   videoSearch(searchTerm) {
@@ -68,8 +67,8 @@ class App extends Component {
           data={this.state.selectedData}
           />
         <div className='content-container'>
-          <VideoList
-            onVideoSelect={selectedVideo => this.setState({selectedVideo})}
+          <YoutubeContent
+            onSelectContent={(selectedType,selectedData) => this.setState({ selectedType, selectedData })}
             videos={this.state.videos}/>
         </div>
         <div className='content-container'>

@@ -18,7 +18,16 @@ const SelectedContent = (props) => {
       );
 
     case 'youtube':
-      return null;
+      return (
+        <div className='selected-content'>
+          <div className='youtube-div'>
+            <img src={YoutubeLogo} className='youtube-logo' />
+            <h3>{props.data.snippet.title}</h3>
+            <p>{props.data.snippet.description}</p>
+          </div>
+            <iframe className='youtube-video-player' src={`https://youtube.com/embed/${props.data.id.videoId}`} />
+        </div>
+      );
 
     default:
       return null;

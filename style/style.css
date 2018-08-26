@@ -9,13 +9,17 @@
 
 .selected-content {
   height: 600px;
-  background-color: gray;
   margin: 60px;
   padding: 30px;
 }
 
 .selected-content .spotify-div {
   margin-bottom: 30px;
+}
+
+.selected-content .youtube-div {
+    width: 500px;
+    float: left;
 }
 
 .content-container {
@@ -56,6 +60,12 @@
 
 .youtube-logo {
   height: 70px;
+}
+
+.youtube-video-player {
+  height: 540px;
+  width: 960px;
+  float: right;
 }
 
 .whole-background {
@@ -106,23 +116,4 @@ body {
 
 .search-bar input {
   width: 75%;
-}
-
-.video-item img {
-  max-width: 64px;
-}
-
-.video-detail .details {
-  margin-top: 10px;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-
-.list-group-item {
-  cursor: pointer;
-}
-
-.list-group-item:hover {
-  background-color: #eee;
 }

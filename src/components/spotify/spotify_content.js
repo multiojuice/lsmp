@@ -42,7 +42,14 @@ class SpotifyContent extends Component {
   render() {
     if(this.props.searchTerm !== this.state.prevSearchTerm) this.getContent(this.props.searchTerm);
 
-    if (!this.state.content) return null;
+    if (!this.state.content)
+      return (
+        <div>
+          <div style={{width: '100%'}}>
+            <img className='spotify-logo' src={SpotifyLogo}/>
+          </div>
+        </div>
+      );
 
     return (
       <div>

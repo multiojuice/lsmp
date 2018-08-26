@@ -1,11 +1,11 @@
 import React from 'react';
-import VideoListItem from './video_list_item';
-import YoutubeLogo from '../assets/YoutubeLogo.png';
-const VideoList = (props) => {
+import YoutubeItem from './youtube_item';
+import YoutubeLogo from '../../assets/YoutubeLogo.png';
+const YoutubeContent = (props) => {
 
   const videoItems = props.videos.slice(0,4).map((video) => {
-    return (<VideoListItem
-      onVideoSelect={props.onVideoSelect}
+    return (<YoutubeItem
+      onSelectContent={props.onSelectContent}
       key={video.etag}
       video={video} />
     );
@@ -21,4 +21,4 @@ const VideoList = (props) => {
   );
 };
 
-export default VideoList;
+export default YoutubeContent;
