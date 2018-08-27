@@ -3,7 +3,6 @@ import YoutubeLogo from '../assets/YoutubeLogo.png';
 import SpotifyLogo from '../assets/SpotifyLogo.png';
 
 const SelectedContent = (props) => {
-  console.log(props)
 
   switch(props.type) {
     case 'spotify':
@@ -28,6 +27,16 @@ const SelectedContent = (props) => {
             <iframe className='youtube-video-player' src={`https://youtube.com/embed/${props.data.id.videoId}`} />
         </div>
       );
+    case 'soundcloud':
+      return(
+        <div className='selected-content'>
+          <iframe width="50%" height="100%" scrolling="no" frameBorder="no"
+            src={`https://w.soundcloud.com/player/?url=${props.data.userLink}&amp;show_user=false`}>
+          </iframe>
+          <div className='soundcloud-div'>
+          </div>
+        </div>
+      )
 
     default:
       return null;

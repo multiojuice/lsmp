@@ -41,21 +41,55 @@
 }
 
 .spotify-item-div:hover {
-    -webkit-filter: brightness(30%);
-    -webkit-transition: all .5s ease;
-    -moz-transition: all .5s ease;
-    -o-transition: all .5s ease;
-    -ms-transition: all .5s ease;
-    transition: all .5s ease;
+  -webkit-filter: brightness(30%);
+  -webkit-transition: all .5s ease;
+  -moz-transition: all .5s ease;
+  -o-transition: all .5s ease;
+  -ms-transition: all .5s ease;
+  transition: all .5s ease;
 }
 
 .spotify-logo {
   height: 70px;
 }
 
+.soundcloud-item-div {
+  float: left;
+  margin: 20px;
+}
+
+.soundcloud-item-div:hover {
+  -webkit-filter: brightness(30%);
+  -webkit-transition: all .5s ease;
+  -moz-transition: all .5s ease;
+  -o-transition: all .5s ease;
+  -ms-transition: all .5s ease;
+  transition: all .5s ease;
+}
+
+.soundcloud-div {
+  float: right;
+  width: 50%;
+  height: 100%;
+  background-color: gray;
+}
+
+.soundcloud-logo {
+  height: 70px;
+}
+
 .youtube-item-div {
   float: left;
   margin: 30px;
+}
+
+.youtube-item-div:hover {
+  -webkit-filter: brightness(30%);
+  -webkit-transition: all .5s ease;
+  -moz-transition: all .5s ease;
+  -o-transition: all .5s ease;
+  -ms-transition: all .5s ease;
+  transition: all .5s ease;
 }
 
 .youtube-logo {

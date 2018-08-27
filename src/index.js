@@ -7,6 +7,7 @@ import SearchBar from './components/search_bar';
 import YoutubeContent from './components/youtube/youtube_content';
 import SpotifyContent from './components/spotify/spotify_content';
 import GithubContent from './components/github_content';
+import SoundcloudContent from './components/soundcloud/soundcloud_content';
 import SelectedContent from './components/selected_content';
 
 
@@ -67,6 +68,11 @@ class App extends Component {
           type={this.state.selectedType}
           data={this.state.selectedData}
           />
+        <div className='content-container'>
+          <SoundcloudContent
+            onSelectContent={(selectedType,selectedData) => this.setState({ selectedType, selectedData })}
+            searchTerm={this.state.searchTerm} />
+        </div>
         <div className='content-container'>
           <YoutubeContent
             onSelectContent={(selectedType,selectedData) => this.setState({ selectedType, selectedData })}
