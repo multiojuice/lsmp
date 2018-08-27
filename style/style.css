@@ -145,9 +145,31 @@ body {
 
 .search-bar {
   margin: 20px;
-  text-align: center;
+}
+
+.search-bar-div {
+  padding: 10px;
+  border: 2px solid #448899;
+  border-radius: 5px;
+  width: 50%;
+  margin-left: 25%;
 }
 
 .search-bar input {
-  width: 75%;
+  width: 70%;
+  height: 40px;
+  border: none;
+  background-color: inherit;
+}
+
+.search-bar input:focus {
+  outline: none;
+}
+
+.search-bar button {
+  border: 0;
+  height: 40px;
+  width: 30%;
+  background-color: #448899;
+  color: white;
 }
