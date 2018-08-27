@@ -34,6 +34,9 @@ const SelectedContent = (props) => {
             src={`https://w.soundcloud.com/player/?url=${props.data.userLink}&amp;show_user=false`}>
           </iframe>
           <div className='soundcloud-div'>
+            <img src={props.data.imageUrl} />
+            <h2 href={props.data.userLink}>{props.data.userName}</h2>
+            <p>{props.data.description}</p>
           </div>
         </div>
       )

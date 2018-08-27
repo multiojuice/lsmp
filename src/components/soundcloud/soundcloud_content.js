@@ -32,6 +32,7 @@ class SoundcloudContent extends Component {
           key={item.id}
           trackCount={item.track_count}
           onSelectContent={this.state.onSelectContent}
+          description={item.description}
         />
     })
   }
