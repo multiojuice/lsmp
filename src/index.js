@@ -23,12 +23,15 @@ class App extends Component {
       selectedVideo: null,
       searchTerm: '',
       selectedType: '',
-      selectedData: null
+      selectedData: null,
+      intervalId: 0
     };
     //this.getAuthTokens();
     this.handleTermChange = this.handleTermChange.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.getAuthTokens = this.getAuthTokens.bind(this);
+    this.scrollToTop = this.scrollToTop.bind(this);
+    this.onSelectContent = this.onSelectContent.bind(this);
   }
 
   getAuthTokens() {
@@ -44,6 +47,23 @@ class App extends Component {
   handleSearch() {
     this.videoSearch(this.state.tempTerm);
     this.setState({ searchTerm: this.state.tempTerm, selectedType: '', selectedData: null })
+  }
+
+  scrollStep() {
+    if (window.pageYOffset === 0) {
+        clearInterval(this.state.intervalId);
+    }
+    window.scroll(0, window.pageYOffset - 15);
+  }
+
+  scrollToTop() {
+    let intervalId = setInterval(this.scrollStep.bind(this), 2);
+    this.setState({ intervalId: intervalId });
+  }
+
+  onSelectContent(selectedType,selectedData) {
+    this.setState({ selectedType, selectedData });
+    this.scrollToTop();
   }
 
   videoSearch(searchTerm) {
@@ -70,17 +90,17 @@ class App extends Component {
           />
         <div className='content-container'>
           <SoundcloudContent
-            onSelectContent={(selectedType,selectedData) => this.setState({ selectedType, selectedData })}
+            onSelectContent={this.onSelectContent}
             searchTerm={this.state.searchTerm} />
         </div>
         <div className='content-container'>
           <YoutubeContent
-            onSelectContent={(selectedType,selectedData) => this.setState({ selectedType, selectedData })}
+            onSelectContent={this.onSelectContent}
             videos={this.state.videos}/>
         </div>
         <div className='content-container'>
           <SpotifyContent
-            onSelectContent={(selectedType,selectedData) => this.setState({ selectedType, selectedData })}
+            onSelectContent={this.onSelectContent}
             searchTerm={this.state.searchTerm} />
         </div>
         <div className='whole-background'>
