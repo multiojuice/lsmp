@@ -39,7 +39,17 @@ const SelectedContent = (props) => {
             <p>{props.data.description}</p>
           </div>
         </div>
-      )
+      );
+
+    case 'github':
+      return (
+        <div className='selected-content'>
+          <h1>{props.data.name}</h1>
+          <h2>{props.data.owner.login}</h2>
+          <h3>{props.data.language}</h3>
+          <p>{props.data.description}</p>
+        </div>
+      );
 
     default:
       return null;

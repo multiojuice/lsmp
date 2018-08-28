@@ -28,6 +28,7 @@ class GithubContent extends Component {
               description={item.description}
               key={item.id}
               id={item.id}
+              onSelectContent={this.state.onSelectContent}
               />;
     })
     return items;
