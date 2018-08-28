@@ -6,7 +6,7 @@ import YTSearch from 'youtube-api-search';
 import SearchBar from './components/search_bar';
 import YoutubeContent from './components/youtube/youtube_content';
 import SpotifyContent from './components/spotify/spotify_content';
-import GithubContent from './components/github_content';
+import GithubContent from './components/github/github_content';
 import SoundcloudContent from './components/soundcloud/soundcloud_content';
 import SelectedContent from './components/selected_content';
 
@@ -88,6 +88,11 @@ class App extends Component {
           type={this.state.selectedType}
           data={this.state.selectedData}
           />
+        <div className='content-container-github'>
+          <GithubContent
+            onSelectContent={this.onSelectContent}
+            searchTerm={this.state.searchTerm} />
+        </div>
         <div className='content-container'>
           <SoundcloudContent
             onSelectContent={this.onSelectContent}

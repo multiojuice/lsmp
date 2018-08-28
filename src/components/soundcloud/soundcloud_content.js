@@ -42,7 +42,6 @@ class SoundcloudContent extends Component {
       q: searchTerm,
       limit: 5
     }).then( content => {
-      console.log(content);
       this.setState({prevSearchTerm: searchTerm, content})
     });
   }

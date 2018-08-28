@@ -27,6 +27,7 @@
   height: 700px;
   margin: 20px;
   float: left;
+  overflow: hidden;
 }
 
 .spotify-item-div {
@@ -76,6 +77,36 @@
 
 .soundcloud-logo {
   height: 70px;
+}
+
+.github-item-div {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content:space-between;
+  height: 100px;
+}
+
+.github-logo {
+  height: 70px;
+}
+
+.full-height {
+  height: 100%;
+}
+
+.github-item-wrapper {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  align-content: space-around;
+  height: 100%;
+}
+
+.content-container-github {
+  width: 50%;
+  height: 700px;
+  margin: 20px;
+  overflow: hidden;
 }
 
 .youtube-item-div {
@@ -160,6 +191,8 @@ body {
   height: 40px;
   border: none;
   background-color: inherit;
+  color: white;
+  font-weight: bold;
 }
 
 .search-bar input:focus {
