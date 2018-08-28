@@ -108,15 +108,6 @@ class App extends Component {
             onSelectContent={this.onSelectContent}
             searchTerm={this.state.searchTerm} />
         </div>
-        <div className='whole-background'>
-          <div className='skewed-background background-light'/>
-          <div className='skewed-background background-medium'/>
-          <div className='skewed-background background-dark'/>
-          <div className='skewed-background background-standard'/>
-          <div className='skewed-background background-light'/>
-          <div className='skewed-background background-medium'/>
-          <div className='skewed-background background-dark'/>
-        </div>
       </div>
     );
   }

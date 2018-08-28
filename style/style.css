@@ -82,7 +82,7 @@
 .github-item-div {
   display: flex;
   flex-flow: row nowrap;
-  justify-content:space-between;
+  justify-content: flex-start;
   height: 100px;
 }
 
@@ -97,12 +97,12 @@
 .github-item-wrapper {
   display: flex;
   flex-flow: column;
-  justify-content: space-between;
-  align-content: space-around;
+  justify-content: space-around;
   height: 100%;
 }
 
 .content-container-github {
+  min-width: 500px;
   width: 50%;
   height: 700px;
   margin: 20px;
