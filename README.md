@@ -12,7 +12,7 @@ List and explore your favorite media [here](http://lsmp-lsmp.a.csh.rit.edu/)
   * Album and track playing!
 * Github
   * List of searched users
-  *
+  * Information on the user
 * Soundcloud
   * List of searched artists
   * Play-ability of all artist songs
