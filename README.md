@@ -10,6 +10,12 @@ List and explore your favorite media [here](http://lsmp-lsmp.a.csh.rit.edu/)
 * Spotify
   * List of searched albums
   * Album and track playing!
+* Github
+  * List of searched users
+  *
+* Soundcloud
+  * List of searched artists
+  * Play-ability of all artist songs
 
 
 ### Getting Started
