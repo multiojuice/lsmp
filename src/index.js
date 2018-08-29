@@ -8,6 +8,7 @@ import YoutubeContent from './components/youtube/youtube_content';
 import SpotifyContent from './components/spotify/spotify_content';
 import GithubContent from './components/github/github_content';
 import SoundcloudContent from './components/soundcloud/soundcloud_content';
+import NytimesContent from './components/nytimes/nytimes_content'
 import SelectedContent from './components/selected_content';
 
 
@@ -105,6 +106,11 @@ class App extends Component {
         </div>
         <div className='content-container'>
           <SpotifyContent
+            onSelectContent={this.onSelectContent}
+            searchTerm={this.state.searchTerm} />
+        </div>
+        <div className='content-container'>
+          <NytimesContent
             onSelectContent={this.onSelectContent}
             searchTerm={this.state.searchTerm} />
         </div>
