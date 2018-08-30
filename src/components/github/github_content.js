@@ -1,22 +1,24 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import GithubItem from './github_item';
+import GithubRepo from './github_repo';
 import GithubLogo from '../../assets/GithubLogo.png'
+import GithubUser from './github_user'
 
 class GithubContent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      prevSearchTerm: this.props.searchTerm,
       onSelectContent: this.props.onSelectContent
     }
 
     this.getContent = this.getContent.bind(this);
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(prevProps, prevState) {
     if(this.props.searchTerm) {
-      this.getContent(this.props.searchTerm, this.props.searchType);
+      if(this.props.searchType !== prevProps.searchType || this.props.searchTerm !== prevProps.searchTerm) {
+        this.getContent(this.props.searchTerm, this.props.searchType);
+      }
     }
   }
 
@@ -25,9 +27,9 @@ class GithubContent extends Component {
     .then(content => { console.log('in getContent', content); this.setState({ content, prevSearchTerm: searchTerm })});
   }
 
-  renderItems() {
+  renderRepos() {
     const items = this.state.content.data.items.slice(0,6).map(item => {
-      return <GithubItem
+      return <GithubRepo
               owner={item.owner}
               language={item.language}
               name={item.name}
@@ -40,10 +42,23 @@ class GithubContent extends Component {
     return items;
   }
 
+  renderUsers() {
+    const items = this.state.content.data.items.slice(0,6).map(item => {
+      return <GithubUser
+                id={item.id}
+                key={item.id}
+                avatar_url={item.avatar_url}
+                score={item.score}
+                onSelectContent={this.state.onSelectContent}
+                name={item.login}
+                />
+    })
+    return items;
+  }
+
   render() {
 
     if (!this.state.content) {
-      console.warn(this.state)
       return (
         <div>
           <div style={{width: '100%'}}>
@@ -52,13 +67,25 @@ class GithubContent extends Component {
         </div>
       );
     }
+
+    let items = null;
+
+    switch (this.props.searchType) {
+      case 'repositories':
+        items = this.renderRepos();
+        break;
+      case 'users':
+        items = this.renderUsers();
+        break;
+    }
+
     return (
       <div className='full-height'>
         <div style={{width: '100%'}}>
           <img className='github-logo' src={GithubLogo} />
         </div>
         <div className='github-item-wrapper'>
-          {this.renderItems()}
+          {items}
         </div>
       </div>
     )

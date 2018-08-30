@@ -41,7 +41,7 @@ const SelectedContent = (props) => {
         </div>
       );
 
-    case 'github':
+    case 'github-repo':
       return (
         <div className='selected-content'>
           <h1>{props.data.name}</h1>
@@ -50,6 +50,16 @@ const SelectedContent = (props) => {
           <p>{props.data.description}</p>
         </div>
       );
+
+    case 'github-user':
+      return (
+        <div className='selected-content'>
+          <h1>{props.data.name}</h1>
+          <h2>{props.data.score}</h2>
+          <h3>{props.data.avatar_url}</h3>
+        </div>
+      )
+
     case 'preferences':
       return (
         <div className='selected-content'>
@@ -57,7 +67,6 @@ const SelectedContent = (props) => {
             <h4>Github</h4>
             <button onClick={() => props.setPreferences({github: 'repositories'})} >Repository</button>
             <button onClick={() => props.setPreferences({github: 'users'})} >User</button>
-            <button onClick={() => props.setPreferences({github: 'topics'})} >Topics</button>
           </div>
         </div>
       );
