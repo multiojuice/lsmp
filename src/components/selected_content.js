@@ -50,6 +50,17 @@ const SelectedContent = (props) => {
           <p>{props.data.description}</p>
         </div>
       );
+    case 'preferences':
+      return (
+        <div className='selected-content'>
+          <div>
+            <h4>Github</h4>
+            <button onClick={() => props.setPreferences({github: 'repositories'})} >Repository</button>
+            <button onClick={() => props.setPreferences({github: 'users'})} >User</button>
+            <button onClick={() => props.setPreferences({github: 'topics'})} >Topics</button>
+          </div>
+        </div>
+      );
 
     default:
       return null;

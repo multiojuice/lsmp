@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-
+import PreferencesLogo from '../assets/Preferences.png';
 class SearchBar extends Component{
 
   constructor(props) {
@@ -25,6 +25,7 @@ class SearchBar extends Component{
             onChange={event => this.onInputChange(event.target.value)}
             onKeyPress={this.handleKeyPress}/>
           <button onClick={() => this.props.handleClick()}>List it!</button>
+          <img src={PreferencesLogo} onClick={() => this.props.onSelectContent('preferences', null)} />
         </div>
       </div>
     );

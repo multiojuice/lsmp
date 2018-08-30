@@ -40,7 +40,6 @@ class NytimesContent extends Component {
     }
 
     if (!this.state.content) {
-      console.warn(this.state)
       return (
         <div>
           <div style={{width: '100%'}}>

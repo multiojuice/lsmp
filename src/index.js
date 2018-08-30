@@ -25,7 +25,11 @@ class App extends Component {
       searchTerm: '',
       selectedType: '',
       selectedData: null,
-      intervalId: 0
+      intervalId: 0,
+      preferences: {
+        github: 'repositories',
+        spotify: 'artists'
+      }
     };
     //this.getAuthTokens();
     this.handleTermChange = this.handleTermChange.bind(this);
@@ -33,6 +37,13 @@ class App extends Component {
     this.getAuthTokens = this.getAuthTokens.bind(this);
     this.scrollToTop = this.scrollToTop.bind(this);
     this.onSelectContent = this.onSelectContent.bind(this);
+    this.setPreferences = this.setPreferences.bind(this);
+  }
+
+  setPreferences(newPref) {
+    const mergedPref = {...this.state.preferences, ...newPref};
+    console.log(mergedPref);
+    this.setState({preferences: mergedPref});
   }
 
   getAuthTokens() {
@@ -83,16 +94,21 @@ class App extends Component {
         <div>
           <SearchBar
             handleClick={this.handleSearch}
-            onSearchTermChange={this.handleTermChange} />
+            onSearchTermChange={this.handleTermChange}
+            onSelectContent={this.onSelectContent}
+        />
         </div>
         <SelectedContent
           type={this.state.selectedType}
           data={this.state.selectedData}
+          setPreferences={this.setPreferences}
           />
         <div className='content-container-github'>
           <GithubContent
             onSelectContent={this.onSelectContent}
-            searchTerm={this.state.searchTerm} />
+            searchTerm={this.state.searchTerm}
+            searchType={this.state.preferences.github}
+          />
         </div>
         <div className='content-container'>
           <SoundcloudContent
@@ -106,11 +122,6 @@ class App extends Component {
         </div>
         <div className='content-container'>
           <SpotifyContent
-            onSelectContent={this.onSelectContent}
-            searchTerm={this.state.searchTerm} />
-        </div>
-        <div className='content-container'>
-          <NytimesContent
             onSelectContent={this.onSelectContent}
             searchTerm={this.state.searchTerm} />
         </div>

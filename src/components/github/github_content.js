@@ -14,8 +14,14 @@ class GithubContent extends Component {
     this.getContent = this.getContent.bind(this);
   }
 
-  getContent(searchTerm) {
-    axios.get(`https://api.github.com/search/repositories?q=${searchTerm}`)
+  componentDidUpdate() {
+    if(this.props.searchTerm) {
+      this.getContent(this.props.searchTerm, this.props.searchType);
+    }
+  }
+
+  getContent(searchTerm, searchType) {
+    axios.get(`https://api.github.com/search/${searchType}?q=${searchTerm}`)
     .then(content => { console.log('in getContent', content); this.setState({ content, prevSearchTerm: searchTerm })});
   }
 
@@ -35,9 +41,6 @@ class GithubContent extends Component {
   }
 
   render() {
-    if(this.props.searchTerm !== this.state.prevSearchTerm) {
-      this.getContent(this.props.searchTerm);
-    }
 
     if (!this.state.content) {
       console.warn(this.state)
