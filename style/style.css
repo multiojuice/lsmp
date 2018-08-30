@@ -184,7 +184,7 @@ body {
 .search-bar {
   display: flex;
   flex-direction: row nowrap;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 .search-bar-div {
@@ -192,6 +192,10 @@ body {
   border: 2px solid #448899;
   border-radius: 5px;
   width: 50%;
+  display: flex;
+  flex-direction: row nowrap;
+  justify-content: space-around;
+  min-width: 400px;
 }
 
 .search-bar input {
@@ -208,9 +212,15 @@ body {
 }
 
 .search-bar button {
+  font-weight: bold;
   border: 0;
   height: 40px;
-  width: 30%;
+  width: 20%;
   background-color: #448899;
+  border-radius: 5px;
   color: white;
+}
+
+.search-bar img {
+  height: 40px;
 }
