@@ -37,6 +37,10 @@ class GithubContent extends Component {
               key={item.id}
               id={item.id}
               onSelectContent={this.state.onSelectContent}
+              issues={item.open_issues}
+              stargazers={item.stargazers}
+              forks={item.forks}
+              watchers={item.watchers}
               />;
     })
     return items;
@@ -80,7 +84,7 @@ class GithubContent extends Component {
     }
 
     return (
-      <div className='full-height'>
+      <div>
         <div style={{width: '100%'}}>
           <img className='github-logo' src={GithubLogo} />
         </div>

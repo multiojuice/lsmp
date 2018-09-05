@@ -7,6 +7,8 @@
   position: relative;
 }
 
+/* TOP SECTION STYLES */
+
 .header {
   display: flex;
   flex-flow: column;
@@ -87,10 +89,23 @@
 }
 
 .github-item-div {
+  padding: 10px;
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
-  height: 100px;
+  background-color: #88BBBB;
+  border-radius: 5px;
+  border: 4px white solid
+}
+
+.github-item-div:hover {
+  background-color: white;
+  border: 4px #88BBBB dashed;
+  -webkit-transition: all .5s ease;
+  -moz-transition: all .5s ease;
+  -o-transition: all .5s ease;
+  -ms-transition: all .5s ease;
+  transition: all .5s ease;
 }
 
 .github-logo {
@@ -103,17 +118,19 @@
 
 .github-item-wrapper {
   display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.github-metrics {
+  padding-left: 10px;
+  display: flex;
   flex-flow: column;
   justify-content: space-around;
-  height: 100%;
 }
 
 .content-container-github {
   min-width: 500px;
-  width: 50%;
-  height: 700px;
-  margin: 20px;
-  overflow: hidden;
 }
 
 .youtube-item-div {
@@ -223,4 +240,28 @@ body {
 
 .search-bar img {
   height: 40px;
+}
+
+/* SELECTED CONTENT */
+
+.flex-content {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-content: center;
+}
+
+.selected-content {
+  height: 600px;
+  margin: 60px;
+  padding: 30px;
+}
+
+.selected-content .spotify-div {
+  margin-bottom: 30px;
+}
+
+.selected-content .youtube-div {
+    width: 500px;
+    float: left;
 }

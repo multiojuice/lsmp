@@ -103,27 +103,20 @@ class App extends Component {
           data={this.state.selectedData}
           setPreferences={this.setPreferences}
           />
-        <div className='content-container-github'>
-          <GithubContent
-            onSelectContent={this.onSelectContent}
-            searchTerm={this.state.searchTerm}
-            searchType={this.state.preferences.github}
-          />
-        </div>
-        <div className='content-container'>
+        <div className='flex-content'>
           <SoundcloudContent
             onSelectContent={this.onSelectContent}
             searchTerm={this.state.searchTerm} />
-        </div>
-        <div className='content-container'>
           <YoutubeContent
             onSelectContent={this.onSelectContent}
             videos={this.state.videos}/>
-        </div>
-        <div className='content-container'>
           <SpotifyContent
             onSelectContent={this.onSelectContent}
             searchTerm={this.state.searchTerm} />
+          <GithubContent
+            onSelectContent={this.onSelectContent}
+            searchTerm={this.state.searchTerm}
+            searchType={this.state.preferences.github} />
         </div>
       </div>
     );

@@ -1,12 +1,21 @@
 import React from 'react';
 
-const GithubRepo = ({ id, onSelectContent, owner, language, name, description}) => {
+const GithubRepo = ({ id, onSelectContent, owner, language, name, description, watchers, stargazers, forks, issues}) => {
 
   return (
       <div onClick={() => onSelectContent('github-repo',{id, owner, language, name, description})} className='github-item-div'>
-        <img height='100px' src={owner.avatar_url}/>
-        <h4>{name}</h4>
-        <p width='200px'>{description}</p>
+        <div>
+          <h2>{name}</h2>
+          <br></br>
+          <h3>{language}</h3>
+        </div>
+        <div className='github-metrics'>
+          <h4>Stars: {stargazers}</h4>
+          <h4>Forks: {forks}</h4>
+          <h4>Issues: {issues}</h4>
+          <h4>Watchers: {watchers}</h4>
+        </div>
+
       </div>
   );
 };
