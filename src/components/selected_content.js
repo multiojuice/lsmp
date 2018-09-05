@@ -63,10 +63,18 @@ const SelectedContent = (props) => {
     case 'preferences':
       return (
         <div className='selected-content'>
+          <h1>List services by:</h1>
           <div>
-            <h4>Github</h4>
+            <h2>Github</h2>
             <button onClick={() => props.setPreferences({github: 'repositories'})} >Repository</button>
             <button onClick={() => props.setPreferences({github: 'users'})} >User</button>
+          </div>
+          <div>
+            <h2>Spotify</h2>
+            <button onClick={() => props.setPreferences({spotify: 'album'})}>Album</button>
+            <button onClick={() => props.setPreferences({spotify: 'artist'})}>Artist</button>
+            <button onClick={() => props.setPreferences({spotify: 'track'})}>Song</button>
+            <button onClick={() => props.setPreferences({spotify: 'playlist'})}>Playlist</button>
           </div>
         </div>
       );

@@ -24,7 +24,7 @@ class GithubContent extends Component {
 
   getContent(searchTerm, searchType) {
     axios.get(`https://api.github.com/search/${searchType}?q=${searchTerm}`)
-    .then(content => { console.log('in getContent', content); this.setState({ content, prevSearchTerm: searchTerm })});
+    .then(content => { this.setState({ content, prevSearchTerm: searchTerm })});
   }
 
   renderRepos() {

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import SpotifyItem from './spotify_item';
+import SpotifyAlbum from './spotify_album';
+import SpotifyArtist from './spotify_artist';
 import SpotifyLogo from '../../assets/SpotifyLogo.png';
 
 let ACCESS_TOKEN = '';
@@ -30,9 +31,9 @@ class SpotifyContent extends Component {
     return '';
   }
 
-  renderItems() {
+  renderAlbums() {
     const items = this.state.content.data.albums.items.map( item => {
-      return <SpotifyItem
+      return <SpotifyAlbum
                 onSelectContent={this.state.onSelectContent}
                 key={item.id}
                 id={item.id}
@@ -47,9 +48,26 @@ class SpotifyContent extends Component {
     return items;
   }
 
+  renderArtists() {
+    const items = this.state.content.data.artists.items.map( item => {
+      return <SpotifyArtist
+                onSelectContent={this.state.onSelectContent}
+                key={item.id}
+                id={item.id}
+                imageUrl={item.images[1].url}
+                name={item.name}
+                popularity={item.popularity}
+                artistLink={item.external_urls.spotify}
+                genre={item.genres[0]}
+                followers={item.followers.total}
+              />;
+    });
+    return items;
+  }
+
   getContent(searchTerm) {
-    axios.get(`https://api.spotify.com/v1/search?q=${searchTerm}&type=album&limit=4`, { headers: { Authorization: 'Bearer ' + ACCESS_TOKEN } })
-    .then(content => { this.setState({ content, prevSearchTerm: searchTerm })}).catch(() => this.setState({isSignedIn: false, prevSearchTerm: searchTerm}));
+    axios.get(`https://api.spotify.com/v1/search?q=${searchTerm}&type=${this.props.searchType}&limit=4`, { headers: { Authorization: 'Bearer ' + ACCESS_TOKEN } })
+    .then(content => { console.warn('spotify', content); this.setState({ content, prevSearchTerm: searchTerm, loadContentType: this.props.searchType })}).catch(() => this.setState({isSignedIn: false, prevSearchTerm: searchTerm}));
   }
 
   render() {
@@ -75,14 +93,28 @@ class SpotifyContent extends Component {
         </div>
       );
 
-    return (
-      <div>
-        <div style={{width: '100%'}}>
-          <img className='spotify-logo' src={SpotifyLogo} />
+    switch (this.state.loadContentType) {
+      case 'album':
+        return (
+          <div>
+            <div style={{width: '100%'}}>
+              <img className='spotify-logo' src={SpotifyLogo} />
+            </div>
+            {this.renderAlbums()}
+          </div>
+        );
+      case 'artist':
+      return (
+        <div>
+          <div style={{width: '100%'}}>
+            <img className='spotify-logo' src={SpotifyLogo} />
+          </div>
+          {this.renderArtists()}
         </div>
-        {this.renderItems()}
-      </div>
-    );
+      );
+
+    }
+
   }
 
 };

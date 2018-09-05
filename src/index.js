@@ -28,7 +28,7 @@ class App extends Component {
       intervalId: 0,
       preferences: {
         github: 'repositories',
-        spotify: 'artists'
+        spotify: 'artist'
       }
     };
     //this.getAuthTokens();
@@ -112,7 +112,8 @@ class App extends Component {
             videos={this.state.videos}/>
           <SpotifyContent
             onSelectContent={this.onSelectContent}
-            searchTerm={this.state.searchTerm} />
+            searchTerm={this.state.searchTerm}
+            searchType={this.state.preferences.spotify} />
           <GithubContent
             onSelectContent={this.onSelectContent}
             searchTerm={this.state.searchTerm}

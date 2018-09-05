@@ -46,6 +46,10 @@
   height: 300px
 }
 
+.spotify-item-div img {
+  max-height: 300px;
+}
+
 .spotify-item-details {
   width: 100%;
 }
@@ -90,6 +94,7 @@
 
 .github-item-div {
   padding: 10px;
+  margin-bottom: 30px;
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
@@ -245,6 +250,7 @@ body {
 /* SELECTED CONTENT */
 
 .flex-content {
+  margin: 20px;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
