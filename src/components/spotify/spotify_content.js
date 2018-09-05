@@ -85,7 +85,7 @@ class SpotifyContent extends Component {
 
   renderTracks() {
     const items = this.state.content.data.tracks.items.map( item => {
-      return <SpotifyArtist
+      return <SpotifyTrack
                 onSelectContent={this.state.onSelectContent}
                 key={item.id}
                 id={item.id}
@@ -93,7 +93,7 @@ class SpotifyContent extends Component {
                 name={item.name}
                 albumId={item.album.id}
                 albumName={item.album.name}
-                artistId={item.artist[0].id}
+                artistId={item.artists[0].id}
                 trackNumber={item.track_number}
               />;
     });
