@@ -45,7 +45,22 @@ const SelectedContent = (props) => {
             <h2>{props.data.collabrative ? 'This is a collabrative playlist!' : 'This isn\'t collabrative'}</h2>
           </div>
         </div>
-      );id, imageUrl, name, owner, collabrative
+      );
+
+    case 'spotify-track':
+      return (
+        <div className='selected-content'>
+          <div className='spotify-div'>
+            <img src={SpotifyLogo} className='spotify-logo' />
+          </div>
+          <iframe src={`https://open.spotify.com/embed/track/${props.data.id}`} allow="encrypted-media" width="500" height="380" frameBorder="0" allowtransparency="true" />
+          <div className='spotify-selected'>
+            <h1>{props.data.name}</h1>
+            <h2>{props.data.trackNumber}</h2>
+            <iframe src={`https://open.spotify.com/follow/1/?uri=spotify:artist:${props.data.artistId}`} allow="encrypted-media" height="56" frameBorder="0" allowtransparency="true" />
+          </div>
+        </div>
+      );
 
     case 'youtube':
       return (
