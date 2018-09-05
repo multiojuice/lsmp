@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import SpotifyAlbum from './spotify_album';
 import SpotifyArtist from './spotify_artist';
+import SpotifyPlaylist from './spotify_playlist';
 import SpotifyLogo from '../../assets/SpotifyLogo.png';
 
 let ACCESS_TOKEN = '';
@@ -65,6 +66,22 @@ class SpotifyContent extends Component {
     return items;
   }
 
+  renderPlaylists() {
+    const items = this.state.content.data.playlists.items.map( item => {
+      return <SpotifyPlaylist
+                onSelectContent={this.state.onSelectContent}
+                key={item.id}
+                id={item.id}
+                imageUrl={item.images[0].url}
+                name={item.name}
+                trackNumber={item.tracks.total}
+                owner={item.owner.display_name}
+                collabrative={item.collabrative}
+              />;
+    });
+    return items;
+  }
+
   getContent(searchTerm) {
     axios.get(`https://api.spotify.com/v1/search?q=${searchTerm}&type=${this.props.searchType}&limit=4`, { headers: { Authorization: 'Bearer ' + ACCESS_TOKEN } })
     .then(content => { console.warn('spotify', content); this.setState({ content, prevSearchTerm: searchTerm, loadContentType: this.props.searchType })}).catch(() => this.setState({isSignedIn: false, prevSearchTerm: searchTerm}));
@@ -103,16 +120,26 @@ class SpotifyContent extends Component {
             {this.renderAlbums()}
           </div>
         );
-      case 'artist':
-      return (
-        <div>
-          <div style={{width: '100%'}}>
-            <img className='spotify-logo' src={SpotifyLogo} />
-          </div>
-          {this.renderArtists()}
-        </div>
-      );
 
+      case 'artist':
+        return (
+          <div>
+            <div style={{width: '100%'}}>
+              <img className='spotify-logo' src={SpotifyLogo} />
+            </div>
+            {this.renderArtists()}
+          </div>
+        );
+
+        case 'playlist':
+          return (
+            <div>
+              <div style={{width: '100%'}}>
+                <img className='spotify-logo' src={SpotifyLogo} />
+              </div>
+              {this.renderPlaylists()}
+            </div>
+          );
     }
 
   }
