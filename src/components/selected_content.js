@@ -5,7 +5,7 @@ import SpotifyLogo from '../assets/SpotifyLogo.png';
 const SelectedContent = (props) => {
 
   switch(props.type) {
-    case 'spotify':
+    case 'spotify-album':
       return (
         <div className='selected-content'>
           <div className='spotify-div'>
@@ -15,6 +15,22 @@ const SelectedContent = (props) => {
           <iframe src={`https://open.spotify.com/follow/1/?uri=spotify:artist:${props.data.artistId}`} allow="encrypted-media" height="56" frameBorder="0" allowtransparency="true" />
         </div>
       );
+
+      case 'spotify-artist':
+        return (
+          <div className='selected-content'>
+            <div className='spotify-div'>
+              <img src={SpotifyLogo} className='spotify-logo' />
+            </div>
+            <iframe src={`https://open.spotify.com/embed/artist/${props.data.id}`} allow="encrypted-media" width="500" height="380" frameBorder="0" allowtransparency="true" />
+            <div className='spotify-selected'>
+              <h1>{props.data.name}</h1>
+              <h2>{props.data.genre}</h2>
+              <h2>{props.data.popularity}</h2>
+              <iframe src={`https://open.spotify.com/follow/1/?uri=spotify:artist:${props.data.id}`} allow="encrypted-media" height="56" frameBorder="0" allowtransparency="true" />
+            </div>
+          </div>
+        );
 
     case 'youtube':
       return (

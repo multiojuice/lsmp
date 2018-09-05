@@ -46,6 +46,10 @@
   height: 300px
 }
 
+.spotify-selected {
+  float: right;
+}
+
 .spotify-item-div img {
   max-height: 300px;
 }
