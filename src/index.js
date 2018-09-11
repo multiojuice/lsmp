@@ -10,6 +10,7 @@ import GithubContent from './components/github/github_content';
 import SoundcloudContent from './components/soundcloud/soundcloud_content';
 import NytimesContent from './components/nytimes/nytimes_content'
 import SelectedContent from './components/selected_content';
+import AppleMusicContent from './components/appleMusic/apple_music_content';
 
 
 const API_KEY = 'AIzaSyD-CXa5zq84ScwCZQcAvMNy2jXgw9aNUMc';
@@ -28,7 +29,8 @@ class App extends Component {
       intervalId: 0,
       preferences: {
         github: 'repositories',
-        spotify: 'artist'
+        spotify: 'artist',
+        appleMusic: 'albums'
       }
     };
     //this.getAuthTokens();
@@ -110,6 +112,10 @@ class App extends Component {
           <YoutubeContent
             onSelectContent={this.onSelectContent}
             videos={this.state.videos}/>
+          <AppleMusicContent
+            onSelectContent={this.onSelectContent}
+            searchTerm={this.state.searchTerm}
+            searchType={this.state.preferences.appleMusic} />
           <SpotifyContent
             onSelectContent={this.onSelectContent}
             searchTerm={this.state.searchTerm}
