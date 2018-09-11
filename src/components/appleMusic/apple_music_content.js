@@ -3,6 +3,8 @@ import axios from 'axios';
 import jwt from 'jsonwebtoken';
 import secret from '../../../appleMusicKey';
 import AppleMusicAlbum from './apple_music_album';
+import AppleMusicArtist from './apple_music_artist';
+import AppleMusicPlaylist from './apple_music_playlist';
 import AppleMusicLogo2 from '../../assets/AppleMusicLogo2.png';
 
 const ACCESS_TOKEN = 'eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ijg5N0E1RkE4WkEifQ.eyJpYXQiOjE1MzAxMDUwNjQsImV4cCI6MTU0NTY1NzA2NCwiaXNzIjoiWkY5OUdFOVI1VyJ9.JRN6e__NCO8Yjhj2ynJV20RbPOuNDo9WLcR_lYg1B348ea4BembEqraV53MF-c14jxKYk_0pRjjJlhmF3lkmdw'
@@ -35,17 +37,15 @@ class AppleMusicContent extends Component {
   }
 
   renderArtists() {
-    const items = this.state.content.data.artists.items.map( item => {
-      return <SpotifyArtist
+    const items = this.state.content.data.results.artists.data.map( item => {
+      return <AppleMusicAlbum
                 onSelectContent={this.state.onSelectContent}
                 key={item.id}
                 id={item.id}
-                imageUrl={item.images[1].url}
-                name={item.name}
-                popularity={item.popularity}
-                artistLink={item.external_urls.spotify}
-                genre={item.genres[0]}
-                followers={item.followers.total}
+                imageUrl={item.attributes.artwork.url}
+                artistName={item.attributes.name}
+                artistink={item.href}
+                genre={item.attributes.genreNames[0]}
               />;
     });
     return items;
@@ -113,26 +113,26 @@ class AppleMusicContent extends Component {
           </div>
         );
 
-      // case 'artist':
-      //   return (
-      //     <div>
-      //       <div style={{width: '100%'}}>
-      //         <img className='spotify-logo' src={SpotifyLogo} />
-      //       </div>
-      //       {this.renderArtists()}
-      //     </div>
-      //   );
-      //
-      // case 'playlist':
-      //   return (
-      //     <div>
-      //       <div style={{width: '100%'}}>
-      //         <img className='spotify-logo' src={SpotifyLogo} />
-      //       </div>
-      //       {this.renderPlaylists()}
-      //     </div>
-      //   );
-      //
+      case 'artist':
+        return (
+          <div>
+            <div style={{width: '100%'}}>
+              <img className='spotify-logo' src={SpotifyLogo} />
+            </div>
+            {this.renderArtists()}
+          </div>
+        );
+
+      case 'playlist':
+        return (
+          <div>
+            <div style={{width: '100%'}}>
+              <img className='spotify-logo' src={SpotifyLogo} />
+            </div>
+            {this.renderPlaylists()}
+          </div>
+        );
+
       // case 'track':
       //   return (
       //     <div>

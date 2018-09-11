@@ -121,6 +121,13 @@ const SelectedContent = (props) => {
             <button onClick={() => props.setPreferences({spotify: 'track'})}>Song</button>
             <button onClick={() => props.setPreferences({spotify: 'playlist'})}>Playlist</button>
           </div>
+          <div>
+            <h2>Apple Music</h2>
+            <button onClick={() => props.setPreferences({appleMusic: 'albums'})}>Album</button>
+            <button onClick={() => props.setPreferences({appleMusic: 'artists'})}>Artist</button>
+            <button onClick={() => props.setPreferences({appleMusic: 'songs'})}>Song</button>
+            <button onClick={() => props.setPreferences({appleMusic: 'playlists'})}>Playlist</button>
+          </div>
         </div>
       );
 
