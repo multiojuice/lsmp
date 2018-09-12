@@ -11,6 +11,7 @@ import SoundcloudContent from './components/soundcloud/soundcloud_content';
 import NytimesContent from './components/nytimes/nytimes_content'
 import SelectedContent from './components/selected_content';
 import AppleMusicContent from './components/appleMusic/apple_music_content';
+import VimeoContent from './components/vimeo/vimeo_content';
 
 
 const API_KEY = 'AIzaSyD-CXa5zq84ScwCZQcAvMNy2jXgw9aNUMc';
@@ -106,16 +107,15 @@ class App extends Component {
           setPreferences={this.setPreferences}
           />
         <div className='flex-content'>
+          <VimeoContent
+            onSelectContent={this.onSelectContent}
+            searchTerm={this.state.searchTerm} />
           <SoundcloudContent
             onSelectContent={this.onSelectContent}
             searchTerm={this.state.searchTerm} />
           <YoutubeContent
             onSelectContent={this.onSelectContent}
             videos={this.state.videos}/>
-          <AppleMusicContent
-            onSelectContent={this.onSelectContent}
-            searchTerm={this.state.searchTerm}
-            searchType={this.state.preferences.appleMusic} />
           <SpotifyContent
             onSelectContent={this.onSelectContent}
             searchTerm={this.state.searchTerm}
