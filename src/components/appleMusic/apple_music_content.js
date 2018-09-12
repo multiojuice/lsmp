@@ -53,15 +53,15 @@ class AppleMusicContent extends Component {
 
   renderPlaylists() {
     const items = this.state.content.data.playlists.items.map( item => {
-      return <SpotifyPlaylist
+      return <AppleMusicPlaylist
                 onSelectContent={this.state.onSelectContent}
                 key={item.id}
                 id={item.id}
-                imageUrl={item.images[0].url}
-                name={item.name}
-                trackNumber={item.tracks.total}
-                owner={item.owner.display_name}
-                collabrative={item.collabrative}
+                imageUrl={item.attributes.artwork.url}
+                curatorName={item.attributes.curatorName}
+                description={item.attributes.description}
+                name={item.attributes.name}
+                playlistLink={item.href}
               />;
     });
     return items;
