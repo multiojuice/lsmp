@@ -105,6 +105,11 @@ const SelectedContent = (props) => {
         </div>
       )
 
+    case 'vimeo-video':
+      return (
+        <div dangerouslySetInnerHTML={{ __html: props.data.embed.html }} />
+      );
+
     case 'preferences':
       return (
         <div className='selected-content'>
