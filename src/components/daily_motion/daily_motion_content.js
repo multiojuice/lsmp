@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import VimeoVideo from './daily_motion_video';
-import VimeoLogo from '../../assets/VimeoLogo.png';
+import DailyMotionVideo from './daily_motion_video';
+import DailyMotionLogo from '../../assets/DailyMotionLogo.png';
 
 class DailyMotionContent extends Component {
   constructor(props) {
@@ -17,7 +17,7 @@ class DailyMotionContent extends Component {
 
   renderVideos() {
     const items = this.state.content.data.list.slice(0,4).map( item => {
-      return <VimeoVideo
+      return <DailyMotionVideo
                 onSelectContent={this.state.onSelectContent}
                 channel={item.channel}
                 imageUrl={item.thumbnail_360_url}
@@ -43,7 +43,7 @@ class DailyMotionContent extends Component {
       return (
         <div>
           <div style={{width: '100%'}}>
-            <img className='spotify-logo' src={VimeoLogo} />
+            <img className='spotify-logo' src={DailyMotionLogo} />
           </div>
         </div>
       );
@@ -51,7 +51,7 @@ class DailyMotionContent extends Component {
       return (
         <div>
           <div style={{width: '100%'}}>
-            <img className='spotify-logo' src={VimeoLogo} />
+            <img className='spotify-logo' src={DailyMotionLogo} />
           </div>
           {this.renderVideos()}
         </div>
@@ -62,7 +62,7 @@ class DailyMotionContent extends Component {
         return (
           <div>
             <div style={{width: '100%'}}>
-              <img className='spotify-logo' src={VimeoLogo} />
+              <img className='spotify-logo' src={DailyMotionLogo} />
             </div>
             {this.renderVideos()}
           </div>
