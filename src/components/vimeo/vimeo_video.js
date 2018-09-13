@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SampleItem = ({ onSelectContent, embed, link, name, imageUrl, userName}) => {
+const VimeoVideo = ({ onSelectContent, embed, link, name, imageUrl, userName}) => {
 
   return (
       <div onClick={() => onSelectContent('vimeo-video',{imageUrl, embed})} className='spotify-item-div'>
@@ -10,4 +10,4 @@ const SampleItem = ({ onSelectContent, embed, link, name, imageUrl, userName}) =
   );
 };
 
-export default SampleItem;
+export default VimeoVideo;

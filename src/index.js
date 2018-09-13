@@ -12,6 +12,7 @@ import NytimesContent from './components/nytimes/nytimes_content'
 import SelectedContent from './components/selected_content';
 import AppleMusicContent from './components/appleMusic/apple_music_content';
 import VimeoContent from './components/vimeo/vimeo_content';
+import DailyMotionContent from './components/daily_motion/daily_motion_content';
 
 
 const API_KEY = 'AIzaSyD-CXa5zq84ScwCZQcAvMNy2jXgw9aNUMc';
@@ -107,6 +108,9 @@ class App extends Component {
           setPreferences={this.setPreferences}
           />
         <div className='flex-content'>
+          <DailyMotionContent
+            onSelectContent={this.onSelectContent}
+            searchTerm={this.state.searchTerm} />
           <VimeoContent
             onSelectContent={this.onSelectContent}
             searchTerm={this.state.searchTerm} />

@@ -110,6 +110,11 @@ const SelectedContent = (props) => {
         <div dangerouslySetInnerHTML={{ __html: props.data.embed.html }} />
       );
 
+    case 'dailymotion-video':
+      return (
+        <div dangerouslySetInnerHTML={{ __html: props.data.embed }} />
+      );
+
     case 'preferences':
       return (
         <div className='selected-content'>

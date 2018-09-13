@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import VimeoVideo from './vimeo_video';
+import VimeoVideo from './daily_motion_video';
 import VimeoLogo from '../../assets/VimeoLogo.png';
 
-const ACCESS_TOKEN = '0c9de60ed26319d172042037ae22195e';
-
-class VimeoContent extends Component {
+class DailyMotionContent extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -17,32 +15,25 @@ class VimeoContent extends Component {
     this.getContent = this.getContent.bind(this);
   }
 
-  // componentDidMount() {
-  //   axios.post(`https://api.vimeo.com/oauth/authorize/client?grant_type=client_credentials`, {},  {
-  //     headers: {
-  //       Authorization: 'basic ' + btoa(CLIENT_ID + ":" + CLIENT_SECRET)
-  //     }
-  //   }).then(content => console.warn('auth response', content));
-  // }
-
   renderVideos() {
-    const items = this.state.content.data.data.map( item => {
+    const items = this.state.content.data.list.slice(0,4).map( item => {
       return <VimeoVideo
                 onSelectContent={this.state.onSelectContent}
-                embed={item.embed}
-                link={item.link}
-                name={item.name}
-                imageUrl={item.pictures.sizes[2].link}
-                userName={item.user.name}
-                key={item.uri}
+                channel={item.channel}
+                imageUrl={item.thumbnail_360_url}
+                id={item.id}
+                key={item.id}
+                name={item.title}
+                ownerId={item.owner}
+                embed={item.embed_html}
               />;
     });
     return items;
   }
 
   getContent(searchTerm) {
-    axios.get(`https://api.vimeo.com/videos?query=${searchTerm}&per_page=4`, { headers: { Authorization: 'Bearer ' + ACCESS_TOKEN } })
-    .then(content => { console.warn('Vimeo', content); this.setState({ content, prevSearchTerm: searchTerm, loadContentType: this.props.searchType })}).catch(() => this.setState({prevSearchTerm: searchTerm}));
+    axios.get(`https://api.dailymotion.com/videos?search=${searchTerm}&fields=thumbnail_360_url,embed_html,title,owner,id,channel`)
+    .then(content => { console.warn('DailyMotion', content); this.setState({ content, prevSearchTerm: searchTerm, loadContentType: this.props.searchType })}).catch(() => this.setState({prevSearchTerm: searchTerm}));
   }
 
   render() {
@@ -80,4 +71,4 @@ class VimeoContent extends Component {
   }
 };
 
-export default VimeoContent;
+export default DailyMotionContent;
