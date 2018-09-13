@@ -3,6 +3,7 @@
     ["transform-runtime", {
       "polyfill": false,
       "regenerator": true
-    }]
+    }],
+    "styled-components"
   ]
 }

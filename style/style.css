@@ -195,18 +195,6 @@ body {
   background-color: #BBCCDD !important;
 }
 
-.title {
-  margin-top: 20px;
-  text-align: center;
-  color: #448899;
-  font-size: 2em;
-  font-family: "Times New Roman", Times, serif;
-}
-
-.title b {
-  font-size: 5em;
-}
-
 .search-bar {
   display: flex;
   flex-direction: row nowrap;
@@ -252,14 +240,6 @@ body {
 }
 
 /* SELECTED CONTENT */
-
-.flex-content {
-  margin: 20px;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-  align-content: center;
-}
 
 .selected-content {
   height: 600px;

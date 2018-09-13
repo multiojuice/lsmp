@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import ReactDOM from 'react-dom';
 import YTSearch from 'youtube-api-search';
+import { TitleText, SearchContent } from './styledComponents';
 import SearchBar from './components/search_bar';
 import YoutubeContent from './components/youtube/youtube_content';
 import SpotifyContent from './components/spotify/spotify_content';
@@ -94,7 +95,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <h1 className='title'><b>L|S|M|P</b> ~ list media please</h1>
+        <TitleText>L|S|M|P</TitleText>
         <div>
           <SearchBar
             handleClick={this.handleSearch}
@@ -107,7 +108,7 @@ class App extends Component {
           data={this.state.selectedData}
           setPreferences={this.setPreferences}
           />
-        <div className='flex-content'>
+        <SearchContent>
           <DailyMotionContent
             onSelectContent={this.onSelectContent}
             searchTerm={this.state.searchTerm} />
@@ -128,7 +129,7 @@ class App extends Component {
             onSelectContent={this.onSelectContent}
             searchTerm={this.state.searchTerm}
             searchType={this.state.preferences.github} />
-        </div>
+        </SearchContent>
       </div>
     );
   }
