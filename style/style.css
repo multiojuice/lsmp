@@ -54,10 +54,6 @@
   max-height: 300px;
 }
 
-.spotify-item-details {
-  width: 100%;
-}
-
 .spotify-item-div:hover {
   -webkit-filter: brightness(30%);
   -webkit-transition: all .5s ease;

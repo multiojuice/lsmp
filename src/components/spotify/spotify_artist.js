@@ -1,11 +1,11 @@
 import React from 'react';
-
+import { ItemDiv, ArtworkImage } from './styledComponents';
 const SpotifyArtist = ({ id, imageUrl, artistLink, onSelectContent, name, popularity, followers, genre}) => {
 
   return (
-      <div onClick={() => onSelectContent('spotify-artist',{id, imageUrl, name, followers, popularity, genre, artistLink})} className='spotify-item-div'>
-        <img src={imageUrl}/>
-      </div>
+      <ItemDiv onClick={() => onSelectContent('spotify-artist',{id, imageUrl, name, followers, popularity, genre, artistLink})}>
+        <ArtworkImage src={imageUrl}/>
+      </ItemDiv>
   );
 };
 

@@ -4,6 +4,7 @@ import SpotifyAlbum from './spotify_album';
 import SpotifyArtist from './spotify_artist';
 import SpotifyPlaylist from './spotify_playlist';
 import SpotifyTrack from './spotify_track';
+import { LogoImg } from './styledComponents';
 import SpotifyLogo from '../../assets/SpotifyLogo.png';
 
 let ACCESS_TOKEN = '';
@@ -112,7 +113,7 @@ class SpotifyContent extends Component {
       return(
         <div>
           <div style={{width: '100%'}}>
-            <img className='spotify-logo' src={SpotifyLogo} />
+            <LogoImg src={SpotifyLogo} />
             <a href={`https://accounts.spotify.com/authorize?client_id=7c4ef6453595449ea792b8f54c79bcfe&redirect_uri=http:%2F%2F${window.location.host}%2F&response_type=token`}>Click here to enable spotify</a>
           </div>
         </div>
@@ -123,7 +124,7 @@ class SpotifyContent extends Component {
       return (
         <div>
           <div style={{width: '100%'}}>
-            <img className='spotify-logo' src={SpotifyLogo} />
+            <LogoImg src={SpotifyLogo} />
           </div>
         </div>
       );
@@ -133,7 +134,7 @@ class SpotifyContent extends Component {
         return (
           <div>
             <div style={{width: '100%'}}>
-              <img className='spotify-logo' src={SpotifyLogo} />
+              <LogoImg src={SpotifyLogo} />
             </div>
             {this.renderAlbums()}
           </div>
@@ -143,7 +144,7 @@ class SpotifyContent extends Component {
         return (
           <div>
             <div style={{width: '100%'}}>
-              <img className='spotify-logo' src={SpotifyLogo} />
+              <LogoImg src={SpotifyLogo} />
             </div>
             {this.renderArtists()}
           </div>
@@ -153,7 +154,7 @@ class SpotifyContent extends Component {
         return (
           <div>
             <div style={{width: '100%'}}>
-              <img className='spotify-logo' src={SpotifyLogo} />
+              <LogoImg src={SpotifyLogo} />
             </div>
             {this.renderPlaylists()}
           </div>
@@ -163,7 +164,7 @@ class SpotifyContent extends Component {
         return (
           <div>
             <div style={{width: '100%'}}>
-              <img className='spotify-logo' src={SpotifyLogo} />
+              <LogoImg src={SpotifyLogo} />
             </div>
             {this.renderTracks()}
           </div>
