@@ -1,12 +1,12 @@
 import React from 'react';
-
+import { ItemDiv, ThumbnailImage } from './styledComponents';
 const SampleItem = ({ onSelectContent, embed, id, channel, name, imageUrl, ownerId}) => {
 
   return (
-      <div onClick={() => onSelectContent('dailymotion-video',{imageUrl, embed})} className='spotify-item-div'>
-        <img src={imageUrl}/>
+      <ItemDiv onClick={() => onSelectContent('dailymotion-video',{imageUrl, embed})} >
+        <ThumbnailImage src={imageUrl}/>
         <p>{name}</p>
-      </div>
+      </ItemDiv>
   );
 };
 

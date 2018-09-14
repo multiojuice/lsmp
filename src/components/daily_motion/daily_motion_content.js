@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import DailyMotionVideo from './daily_motion_video';
 import DailyMotionLogo from '../../assets/DailyMotionLogo.png';
+import { LogoImg } from './styledComponents';
 
 class DailyMotionContent extends Component {
   constructor(props) {
@@ -43,7 +44,7 @@ class DailyMotionContent extends Component {
       return (
         <div>
           <div style={{width: '100%'}}>
-            <img className='spotify-logo' src={DailyMotionLogo} />
+            <LogoImg src={DailyMotionLogo} />
           </div>
         </div>
       );
@@ -51,7 +52,7 @@ class DailyMotionContent extends Component {
       return (
         <div>
           <div style={{width: '100%'}}>
-            <img className='spotify-logo' src={DailyMotionLogo} />
+            <LogoImg src={DailyMotionLogo} />
           </div>
           {this.renderVideos()}
         </div>
@@ -62,7 +63,7 @@ class DailyMotionContent extends Component {
         return (
           <div>
             <div style={{width: '100%'}}>
-              <img className='spotify-logo' src={DailyMotionLogo} />
+              <LogoImg src={DailyMotionLogo} />
             </div>
             {this.renderVideos()}
           </div>
