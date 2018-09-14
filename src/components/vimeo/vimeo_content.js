@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import VimeoVideo from './vimeo_video';
 import VimeoLogo from '../../assets/VimeoLogo.png';
+import { LogoImg } from './styledComponents';
 
 const ACCESS_TOKEN = '0c9de60ed26319d172042037ae22195e';
 
@@ -52,7 +53,7 @@ class VimeoContent extends Component {
       return (
         <div>
           <div style={{width: '100%'}}>
-            <img className='spotify-logo' src={VimeoLogo} />
+            <LogoImg src={VimeoLogo} />
           </div>
         </div>
       );
@@ -60,7 +61,7 @@ class VimeoContent extends Component {
       return (
         <div>
           <div style={{width: '100%'}}>
-            <img className='spotify-logo' src={VimeoLogo} />
+            <LogoImg src={VimeoLogo} />
           </div>
           {this.renderVideos()}
         </div>
@@ -71,7 +72,7 @@ class VimeoContent extends Component {
         return (
           <div>
             <div style={{width: '100%'}}>
-              <img className='spotify-logo' src={VimeoLogo} />
+              <LogoImg src={VimeoLogo} />
             </div>
             {this.renderVideos()}
           </div>

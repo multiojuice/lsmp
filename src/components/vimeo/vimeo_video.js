@@ -1,12 +1,12 @@
 import React from 'react';
-
+import { ItemDiv, ThumbnailImage } from './styledComponents';
 const VimeoVideo = ({ onSelectContent, embed, link, name, imageUrl, userName}) => {
 
   return (
-      <div onClick={() => onSelectContent('vimeo-video',{imageUrl, embed})} className='spotify-item-div'>
-        <img src={imageUrl}/>
+      <ItemDiv onClick={() => onSelectContent('vimeo-video',{imageUrl, embed})} >
+        <ThumbnailImage src={imageUrl}/>
         <p>{userName}</p>
-      </div>
+      </ItemDiv>
   );
 };
 
