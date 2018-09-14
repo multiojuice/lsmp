@@ -16,3 +16,28 @@ export const SearchContent = styled.div`
   justify-content: space-around;
   align-content: center;
 `;
+
+export const ButtonBar = styled.div`
+  width: 100%;
+  height: 80px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const ButtonSection = styled.div`
+
+`;
+
+export const Button = styled.button`
+  font-weight: bold;
+  border: 0;
+  height: 40px;
+  background-color: #448899;
+  border-radius: 5px;
+  color: white;
+  margin: 0 10px;
+  min-width: 60px;
+  padding: 0 10px;
+`;

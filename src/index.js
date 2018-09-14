@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import ReactDOM from 'react-dom';
 import YTSearch from 'youtube-api-search';
-import { TitleText, SearchContent } from './styledComponents';
+import { TitleText, SearchContent, ButtonBar, ButtonSection, Button } from './styledComponents';
 import SearchBar from './components/search_bar';
 import YoutubeContent from './components/youtube/youtube_content';
 import SpotifyContent from './components/spotify/spotify_content';
@@ -29,6 +29,7 @@ class App extends Component {
       selectedType: '',
       selectedData: null,
       intervalId: 0,
+      searchContentGroup: 'all',
       preferences: {
         github: 'repositories',
         spotify: 'artist',
@@ -42,6 +43,7 @@ class App extends Component {
     this.scrollToTop = this.scrollToTop.bind(this);
     this.onSelectContent = this.onSelectContent.bind(this);
     this.setPreferences = this.setPreferences.bind(this);
+    this.handleContentGroupChange = this.handleContentGroupChange.bind(this);
   }
 
   setPreferences(newPref) {
@@ -63,6 +65,11 @@ class App extends Component {
   handleSearch() {
     this.videoSearch(this.state.tempTerm);
     this.setState({ searchTerm: this.state.tempTerm, selectedType: '', selectedData: null })
+  }
+
+  handleContentGroupChange(e) {
+    console.log(e)
+    this.setState({searchContentGroup: e.target.name});
   }
 
   scrollStep() {
@@ -91,9 +98,90 @@ class App extends Component {
     })
   }
 
+  renderSearchContent() {
+    switch (this.state.searchContentGroup) {
+      case 'all':
+        return this.renderAllContent();
+      case 'music':
+        return this.renderMusicContent();
+      case 'video':
+        return this.renderVideoContent();
+    }
+    return this.renderAllContents();
+  }
+
+  renderAllContent() {
+    return (
+      <SearchContent>
+        <DailyMotionContent
+          onSelectContent={this.onSelectContent}
+          searchTerm={this.state.searchTerm} />
+        <VimeoContent
+          onSelectContent={this.onSelectContent}
+          searchTerm={this.state.searchTerm} />
+        <SoundcloudContent
+          onSelectContent={this.onSelectContent}
+          searchTerm={this.state.searchTerm} />
+        <YoutubeContent
+          onSelectContent={this.onSelectContent}
+          videos={this.state.videos}/>
+        <SpotifyContent
+          onSelectContent={this.onSelectContent}
+          searchTerm={this.state.searchTerm}
+          searchType={this.state.preferences.spotify} />
+        <GithubContent
+          onSelectContent={this.onSelectContent}
+          searchTerm={this.state.searchTerm}
+          searchType={this.state.preferences.github} />
+      </SearchContent>
+    );
+  }
+
+  renderMusicContent() {
+    return (
+      <SearchContent>
+        <SoundcloudContent
+          onSelectContent={this.onSelectContent}
+          searchTerm={this.state.searchTerm} />
+        <SpotifyContent
+          onSelectContent={this.onSelectContent}
+          searchTerm={this.state.searchTerm}
+          searchType={this.state.preferences.spotify} />
+      </SearchContent>
+    );
+  }
+
+  renderVideoContent() {
+    return (
+      <SearchContent>
+        <YoutubeContent
+          onSelectContent={this.onSelectContent}
+          videos={this.state.videos}/>
+        <VimeoContent
+          onSelectContent={this.onSelectContent}
+          searchTerm={this.state.searchTerm} />
+        <DailyMotionContent
+          onSelectContent={this.onSelectContent}
+          searchTerm={this.state.searchTerm} />
+      </SearchContent>
+    );
+  }
+
   render() {
     return (
       <div>
+        <ButtonBar>
+          <ButtonSection>
+            <Button onClick={this.handleContentGroupChange} name='all'>All</Button>
+            <Button onClick={this.handleContentGroupChange} name='video'>Videos</Button>
+            <Button onClick={this.handleContentGroupChange} name='music'>Music</Button>
+          </ButtonSection>
+          <ButtonSection>
+            <a href='https://github.com/multiojuice/lsmp'><Button>Contribute</Button> </a>
+            <a href='https://github.com/multiojuice/lsmp/issues'><Button>Request a Feature</Button></a>
+            <Button>About</Button>
+          </ButtonSection>
+        </ButtonBar>
         <TitleText>L|S|M|P</TitleText>
         <div>
           <SearchBar
@@ -107,28 +195,7 @@ class App extends Component {
           data={this.state.selectedData}
           setPreferences={this.setPreferences}
           />
-        <SearchContent>
-          <DailyMotionContent
-            onSelectContent={this.onSelectContent}
-            searchTerm={this.state.searchTerm} />
-          <VimeoContent
-            onSelectContent={this.onSelectContent}
-            searchTerm={this.state.searchTerm} />
-          <SoundcloudContent
-            onSelectContent={this.onSelectContent}
-            searchTerm={this.state.searchTerm} />
-          <YoutubeContent
-            onSelectContent={this.onSelectContent}
-            videos={this.state.videos}/>
-          <SpotifyContent
-            onSelectContent={this.onSelectContent}
-            searchTerm={this.state.searchTerm}
-            searchType={this.state.preferences.spotify} />
-          <GithubContent
-            onSelectContent={this.onSelectContent}
-            searchTerm={this.state.searchTerm}
-            searchType={this.state.preferences.github} />
-        </SearchContent>
+        {this.renderSearchContent()}
       </div>
     );
   }
