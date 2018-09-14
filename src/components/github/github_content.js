@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import GithubRepo from './github_repo';
-import GithubLogo from '../../assets/GithubLogo.png'
-import GithubUser from './github_user'
+import GithubLogo from '../../assets/GithubLogo.png';
+import GithubUser from './github_user';
+import { ItemsWrapper, LogoImg } from './styledComponents';
 
 class GithubContent extends Component {
   constructor(props) {
@@ -66,7 +67,7 @@ class GithubContent extends Component {
       return (
         <div>
           <div style={{width: '100%'}}>
-            <img className='github-logo' src={GithubLogo} />
+            <LogoImg src={GithubLogo} />
           </div>
         </div>
       );
@@ -86,11 +87,11 @@ class GithubContent extends Component {
     return (
       <div>
         <div style={{width: '100%'}}>
-          <img className='github-logo' src={GithubLogo} />
+          <LogoImg src={GithubLogo} />
         </div>
-        <div className='github-item-wrapper'>
+        <ItemsWrapper>
           {items}
-        </div>
+        </ItemsWrapper>
       </div>
     )
   }
