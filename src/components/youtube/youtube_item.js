@@ -1,15 +1,16 @@
 import React from 'react';
+import { ItemDiv } from './styledComponents';
 
 const YoutubeItem = ({video, onSelectContent}) => {
 
   const videoImage = video.snippet.thumbnails.medium.url;
 
   return (
-    <div className='youtube-item-div' onClick={() => onSelectContent('youtube', video)}>
+    <ItemDiv onClick={() => onSelectContent('youtube', video)}>
       <div>
         <img src={videoImage}/>
       </div>
-    </div>
+    </ItemDiv>
   );
 };
 

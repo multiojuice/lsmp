@@ -1,6 +1,8 @@
 import React from 'react';
 import YoutubeItem from './youtube_item';
 import YoutubeLogo from '../../assets/YoutubeLogo.png';
+import { LogoImg } from './styledComponents'
+
 const YoutubeContent = (props) => {
 
   const videoItems = props.videos.slice(0,4).map((video) => {
@@ -14,7 +16,7 @@ const YoutubeContent = (props) => {
   return (
     <div>
       <div>
-        <img className='youtube-logo' src={YoutubeLogo} />
+        <LogoImg src={YoutubeLogo} />
       </div>
       {videoItems}
     </div>
