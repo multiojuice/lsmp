@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import SoundCloudItem from './soundcloud_item';
 import SoundcloudLogo from '../../assets/SoundcloudLogo.png';
+import { LogoImg } from './styledComponents';
 
 let CLIENT_ID = 'NZtb1cCBbHFHV67f1Fp9jkGKog0H4StA';
 
@@ -53,7 +54,7 @@ class SoundcloudContent extends Component {
       return (
         <div>
           <div style={{width: '100%'}}>
-            <img className='soundcloud-logo' src={SoundcloudLogo} />
+            <LogoImg src={SoundcloudLogo} />
           </div>
         </div>
       );
@@ -61,7 +62,7 @@ class SoundcloudContent extends Component {
     return (
       <div>
         <div style={{width: '100%'}}>
-          <img className='soundcloud-logo' src={SoundcloudLogo} />
+          <LogoImg src={SoundcloudLogo} />
         </div>
         {this.renderItems()}
       </div>
