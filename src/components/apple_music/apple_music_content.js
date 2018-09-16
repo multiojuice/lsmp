@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import jwt from 'jsonwebtoken';
-import secret from '../../../appleMusicKey';
 import AppleMusicAlbum from './apple_music_album';
 import AppleMusicArtist from './apple_music_artist';
 import AppleMusicPlaylist from './apple_music_playlist';
