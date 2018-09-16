@@ -16,11 +16,7 @@
   width: 100%;
 }
 
-.selected-content {
-  height: 600px;
-  margin: 60px;
-  padding: 30px;
-}
+
 
 .selected-content .spotify-div {
   margin-bottom: 30px;
@@ -29,14 +25,6 @@
 .selected-content .youtube-div {
     width: 500px;
     float: left;
-}
-
-.content-container {
-  width: 800px;
-  height: 700px;
-  margin: 20px;
-  float: left;
-  overflow: hidden;
 }
 
 .spotify-item-div {

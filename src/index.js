@@ -9,7 +9,7 @@ import YoutubeContent from './components/youtube/youtube_content';
 import SpotifyContent from './components/spotify/spotify_content';
 import GithubContent from './components/github/github_content';
 import SoundcloudContent from './components/soundcloud/soundcloud_content';
-import SelectedContent from './components/selected_content';
+import SelectedContent from './components/selected/selected_content';
 import AppleMusicContent from './components/apple_music/apple_music_content';
 import VimeoContent from './components/vimeo/vimeo_content';
 import DailyMotionContent from './components/daily_motion/daily_motion_content';
