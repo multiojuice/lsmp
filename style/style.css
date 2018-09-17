@@ -16,56 +16,6 @@
   width: 100%;
 }
 
-
-
-.selected-content .spotify-div {
-  margin-bottom: 30px;
-}
-
-.selected-content .youtube-div {
-    width: 500px;
-    float: left;
-}
-
-.spotify-item-div {
-  float: left;
-  margin: 20px;
-  position: relative;
-  height: 300px
-}
-
-.spotify-selected {
-  float: right;
-}
-
-.spotify-item-div img {
-  max-height: 300px;
-}
-
-.spotify-item-div:hover {
-  -webkit-filter: brightness(30%);
-  -webkit-transition: all .5s ease;
-  -moz-transition: all .5s ease;
-  -o-transition: all .5s ease;
-  -ms-transition: all .5s ease;
-  transition: all .5s ease;
-}
-
-.spotify-logo {
-  height: 70px;
-}
-
-.soundcloud-div {
-  float: right;
-  width: 50%;
-  height: 100%;
-  padding: 20px;
-}
-
-.content-container-github {
-  min-width: 500px;
-}
-
 .youtube-video-player {
   height: 540px;
   width: 960px;
@@ -143,21 +93,4 @@ body {
 
 .search-bar img {
   height: 40px;
-}
-
-/* SELECTED CONTENT */
-
-.selected-content {
-  height: 600px;
-  margin: 60px;
-  padding: 30px;
-}
-
-.selected-content .spotify-div {
-  margin-bottom: 30px;
-}
-
-.selected-content .youtube-div {
-    width: 500px;
-    float: left;
 }

@@ -19,12 +19,13 @@ export const SpotifySelected = styled.div`
   float: right;
 `;
 
-// Youtub COMPONENTS
+// YOUTUBE COMPONENTS
 export const YoutubeDiv = styled.div`
   width: 500px;
   float: left;
 `;
 
+// SOUNDCLOUD COMPONENTS
 export const SoundcloudDiv = styled.div`
   float: right;
   width: 50%;

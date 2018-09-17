@@ -8,6 +8,7 @@ import {
 } from './spotify_selected';
 import { YoutubeSelectedVideo } from './youtube_selected';
 import { SoundcloudSelectedArtist } from './soundcloud_selected';
+import { GithubSelectedRepo, GithubSelectedUser } from './github_selected';
 
 const SelectedContent = (props) => {
 
@@ -31,32 +32,23 @@ const SelectedContent = (props) => {
       return <SoundcloudSelectedArtist data={props.data} />;
 
     case 'github-repo':
-      return (
-        <ContentDiv>
-          <h1>{props.data.name}</h1>
-          <h2>{props.data.owner.login}</h2>
-          <h3>{props.data.language}</h3>
-          <p>{props.data.description}</p>
-        </ContentDiv>
-      );
+      return <GithubSelectedRepo data={props.data} />
 
     case 'github-user':
-      return (
-        <ContentDiv>
-          <h1>{props.data.name}</h1>
-          <h2>{props.data.score}</h2>
-          <h3>{props.data.avatar_url}</h3>
-        </ContentDiv>
-      )
+      return <GithubSelectedUser data={props.data} />
 
     case 'vimeo-video':
       return (
-        <div dangerouslySetInnerHTML={{ __html: props.data.embed.html }} />
+        <ContentDiv>
+          <div dangerouslySetInnerHTML={{ __html: props.data.embed.html }} />
+        </ContentDiv>
       );
 
     case 'dailymotion-video':
       return (
-        <div dangerouslySetInnerHTML={{ __html: props.data.embed }} />
+        <ContentDiv>
+          <div dangerouslySetInnerHTML={{ __html: props.data.embed }} />
+        </ContentDiv>
       );
 
     case 'preferences':
