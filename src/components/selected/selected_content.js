@@ -1,6 +1,4 @@
 import React from 'react';
-import YoutubeLogo from '../../assets/YoutubeLogo.png';
-import SpotifyLogo from '../../assets/SpotifyLogo.png';
 import { ContentDiv } from './styledComponents';
 import {
   SpotifySelectedAlbum,
@@ -8,6 +6,8 @@ import {
   SpotifySelectedArtist,
   SpotifySelectedPlaylist
 } from './spotify_selected';
+import { YoutubeSelectedVideo } from './youtube_selected';
+import { SoundcloudSelectedArtist } from './soundcloud_selected';
 
 const SelectedContent = (props) => {
 
@@ -25,29 +25,10 @@ const SelectedContent = (props) => {
       return <SpotifySelectedTrack data={props.data} />;
 
     case 'youtube':
-      return (
-        <ContentDiv>
-          <div className='youtube-div'>
-            <img src={YoutubeLogo} className='youtube-logo' />
-            <h3>{props.data.snippet.title}</h3>
-            <p>{props.data.snippet.description}</p>
-          </div>
-            <iframe className='youtube-video-player' src={`https://youtube.com/embed/${props.data.id.videoId}`} />
-        </ContentDiv>
-      );
+      return <YoutubeSelectedVideo data={props.data} />;
+
     case 'soundcloud':
-      return(
-        <ContentDiv>
-          <iframe width="50%" height="100%" scrolling="no" frameBorder="no"
-            src={`https://w.soundcloud.com/player/?url=${props.data.userLink}&amp;show_user=false`}>
-          </iframe>
-          <div className='soundcloud-div'>
-            <img src={props.data.imageUrl} />
-            <h2 href={props.data.userLink}>{props.data.userName}</h2>
-            <p>{props.data.description}</p>
-          </div>
-        </ContentDiv>
-      );
+      return <SoundcloudSelectedArtist data={props.data} />;
 
     case 'github-repo':
       return (
