@@ -1,5 +1,12 @@
 import React from 'react';
-import { ContentDiv } from './styledComponents';
+import {
+  ContentDiv,
+  PreferencesDiv,
+  PreferencesWrapper,
+  PreferencesButton,
+  ButtonContainer,
+  ButtonWrapper
+} from './styledComponents';
 import {
   SpotifySelectedAlbum,
   SpotifySelectedTrack,
@@ -53,28 +60,50 @@ const SelectedContent = (props) => {
 
     case 'preferences':
       return (
-        <ContentDiv>
+        <PreferencesWrapper>
           <h1>List services by:</h1>
-          <div>
+          <PreferencesDiv>
             <h2>Github</h2>
-            <button onClick={() => props.setPreferences({github: 'repositories'})} >Repository</button>
-            <button onClick={() => props.setPreferences({github: 'users'})} >User</button>
-          </div>
-          <div>
+            <ButtonWrapper>
+              <PreferencesButton onClick={() => props.setPreferences({github: 'repositories'})} >Repository</PreferencesButton>
+            </ButtonWrapper>
+            <ButtonWrapper>
+              <PreferencesButton onClick={() => props.setPreferences({github: 'users'})} >User</PreferencesButton>
+            </ButtonWrapper>
+          </PreferencesDiv>
+          <PreferencesDiv>
             <h2>Spotify</h2>
-            <button onClick={() => props.setPreferences({spotify: 'album'})}>Album</button>
-            <button onClick={() => props.setPreferences({spotify: 'artist'})}>Artist</button>
-            <button onClick={() => props.setPreferences({spotify: 'track'})}>Song</button>
-            <button onClick={() => props.setPreferences({spotify: 'playlist'})}>Playlist</button>
-          </div>
-          <div>
+            <ButtonWrapper>
+              <PreferencesButton onClick={() => props.setPreferences({spotify: 'album'})}>Album</PreferencesButton>
+            </ButtonWrapper>
+            <ButtonWrapper>
+              <PreferencesButton onClick={() => props.setPreferences({spotify: 'artist'})}>Artist</PreferencesButton>
+            </ButtonWrapper>
+            <ButtonWrapper>
+              <PreferencesButton onClick={() => props.setPreferences({spotify: 'track'})}>Song</PreferencesButton>
+            </ButtonWrapper>
+            <ButtonWrapper>
+              <PreferencesButton onClick={() => props.setPreferences({spotify: 'playlist'})}>Playlist</PreferencesButton>
+            </ButtonWrapper>
+          </PreferencesDiv>
+          <PreferencesDiv>
             <h2>Apple Music</h2>
-            <button onClick={() => props.setPreferences({appleMusic: 'albums'})}>Album</button>
-            <button onClick={() => props.setPreferences({appleMusic: 'artists'})}>Artist</button>
-            <button onClick={() => props.setPreferences({appleMusic: 'songs'})}>Song</button>
-            <button onClick={() => props.setPreferences({appleMusic: 'playlists'})}>Playlist</button>
-          </div>
-        </ContentDiv>
+            <ButtonContainer>
+              <ButtonWrapper>
+                <PreferencesButton onClick={() => props.setPreferences({appleMusic: 'albums'})}>Album</PreferencesButton>
+              </ButtonWrapper>
+              <ButtonWrapper>
+                <PreferencesButton onClick={() => props.setPreferences({appleMusic: 'artists'})}>Artist</PreferencesButton>
+              </ButtonWrapper>
+              <ButtonWrapper>
+                <PreferencesButton onClick={() => props.setPreferences({appleMusic: 'songs'})}>Song</PreferencesButton>
+              </ButtonWrapper>
+              <ButtonWrapper>
+                <PreferencesButton onClick={() => props.setPreferences({appleMusic: 'playlists'})}>Playlist</PreferencesButton>
+              </ButtonWrapper>
+            </ButtonContainer>
+          </PreferencesDiv>
+        </PreferencesWrapper>
       );
 
     default:
