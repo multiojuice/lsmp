@@ -137,7 +137,7 @@ class AppleMusicContent extends Component {
         return (
           <div>
             <div style={{width: '100%'}}>
-              <LogoImg src={SpotifyLogo} />
+              <LogoImg src={AppleMusicLogo2} />
             </div>
             {this.renderArtists()}
           </div>
@@ -147,7 +147,7 @@ class AppleMusicContent extends Component {
         return (
           <div>
             <div style={{width: '100%'}}>
-              <LogoImg src={SpotifyLogo} />
+              <LogoImg src={AppleMusicLogo2} />
             </div>
             {this.renderPlaylists()}
           </div>

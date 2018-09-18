@@ -1,4 +1,5 @@
 import React from 'react';
+import { ArtworkImage, ItemDiv } from './styledComponents';
 
 const AppleArtistAlbum = ({ id, imageUrl, artistName, albumLink, albumName, onSelectContent}) => {
 
@@ -6,9 +7,9 @@ const AppleArtistAlbum = ({ id, imageUrl, artistName, albumLink, albumName, onSe
   imageUrl = `${imageUrl}300x300bb.jpeg`;
 
   return (
-      <div onClick={() => onSelectContent('spotify-album',{id, imageUrl, artistName, albumLink})} className='spotify-item-div'>
-        <img src={imageUrl}/>
-      </div>
+      <ItemDiv onClick={() => onSelectContent('spotify-album',{id, imageUrl, artistName, albumLink})} >
+        <ArtworkImage src={imageUrl}/>
+      </ItemDiv>
   );
 };
 
