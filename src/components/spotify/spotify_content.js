@@ -36,11 +36,12 @@ class SpotifyContent extends Component {
 
   renderAlbums() {
     const items = this.state.content.data.albums.items.map( item => {
+
       return <SpotifyAlbum
                 onSelectContent={this.state.onSelectContent}
                 key={item.id}
                 id={item.id}
-                imageUrl={item.images[1].url}
+                imageUrl={item.images[1] ? item.images[1].url : SpotifyLogo}
                 artistName={item.artists[0].name}
                 artistLink={item.artists[0].external_urls.spotify}
                 artistId={item.artists[0].id}
@@ -53,11 +54,12 @@ class SpotifyContent extends Component {
 
   renderArtists() {
     const items = this.state.content.data.artists.items.map( item => {
+
       return <SpotifyArtist
                 onSelectContent={this.state.onSelectContent}
                 key={item.id}
                 id={item.id}
-                imageUrl={item.images[1].url}
+                imageUrl={item.images[1] ? item.images[1].url : SpotifyLogo}
                 name={item.name}
                 popularity={item.popularity}
                 artistLink={item.external_urls.spotify}
@@ -74,7 +76,7 @@ class SpotifyContent extends Component {
                 onSelectContent={this.state.onSelectContent}
                 key={item.id}
                 id={item.id}
-                imageUrl={item.images[0].url}
+                imageUrl={item.images[1] ? item.images[1].url : SpotifyLogo}
                 name={item.name}
                 trackNumber={item.tracks.total}
                 owner={item.owner.display_name}
@@ -90,7 +92,7 @@ class SpotifyContent extends Component {
                 onSelectContent={this.state.onSelectContent}
                 key={item.id}
                 id={item.id}
-                imageUrl={item.album.images[1].url}
+                imageUrl={item.album.images[1] ? item.album.images[1].url : SpotifyLogo}
                 name={item.name}
                 albumId={item.album.id}
                 albumName={item.album.name}

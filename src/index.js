@@ -113,6 +113,10 @@ class App extends Component {
   renderAllContent() {
     return (
       <SearchContent>
+        <AppleMusicContent
+          onSelectContent={this.onSelectContent}
+          searchTerm={this.state.searchTerm}
+          searchType={this.state.preferences.appleMusic} />
         <DailyMotionContent
           onSelectContent={this.onSelectContent}
           searchTerm={this.state.searchTerm} />
