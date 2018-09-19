@@ -5,7 +5,6 @@ const SampleItem = ({ onSelectContent, embed, id, channel, name, imageUrl, owner
   return (
       <ItemDiv onClick={() => onSelectContent('dailymotion-video',{imageUrl, embed, id})} >
         <ThumbnailImage src={imageUrl}/>
-        <p>{name}</p>
       </ItemDiv>
   );
 };

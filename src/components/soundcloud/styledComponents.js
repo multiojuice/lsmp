@@ -16,3 +16,7 @@ export const ItemDiv = styled.div`
     transition: all .5s ease;
   }
 `;
+
+export const ProfImg = styled.img`
+  height: 160px;
+`;
