@@ -54,7 +54,7 @@ const SelectedContent = (props) => {
       let id = (props.data.uri).split('/')[2];
       return (
         <ContentDiv>
-          <iframe src={`https://player.vimeo.com/video/${id}?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=134035`} width="100%" height="auto" frameBorder="0" title="Nike &quot;The Chance&quot;" allowFullScreen></iframe>
+          <iframe src={`https://player.vimeo.com/video/${id}?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=134035`} allow="autoplay *; encrypted-media *;" frameBorder="0" allowFullScreen sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation" style={{width: '100%', 'max-width': '1200px', background:'transparent', overflow: 'hidden'}}></iframe>
         </ContentDiv>
 
       );
@@ -62,7 +62,7 @@ const SelectedContent = (props) => {
     case 'dailymotion-video':
       return (
         <ContentDiv>
-          <iframe frameBorder="0" width="100%" height="100%" src={`//www.dailymotion.com/embed/video/${props.data.id}`} allowFullScreen allow="autoplay"></iframe>
+          <iframe allow="autoplay *; encrypted-media *;" frameBorder="0" allowFullScreen sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation" style={{width: '100%', 'max-width': '1200px', background:'transparent', overflow: 'hidden'}} src={`//www.dailymotion.com/embed/video/${props.data.id}`} ></iframe>
         </ContentDiv>
       );
 

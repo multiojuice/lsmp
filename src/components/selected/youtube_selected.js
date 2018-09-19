@@ -5,12 +5,7 @@ import { ContentDiv, YoutubeDiv, LogoImg } from './styledComponents';
 export const YoutubeSelectedVideo = (props) => {
   return (
     <ContentDiv>
-      <YoutubeDiv>
-        <LogoImg src={YoutubeLogo} />
-        <h3>{props.data.snippet.title}</h3>
-        <p>{props.data.snippet.description}</p>
-      </YoutubeDiv>
-        <iframe className='youtube-video-player' src={`https://youtube.com/embed/${props.data.id.videoId}`} />
+        <iframe allow="autoplay *; encrypted-media *;" frameBorder="0" allowFullScreen sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation" style={{width: '100%', 'max-width': '1200px', background:'transparent', overflow: 'hidden'}} src={`https://youtube.com/embed/${props.data.id.videoId}`} />
     </ContentDiv>
   );
 }
