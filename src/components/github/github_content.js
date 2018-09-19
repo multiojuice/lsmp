@@ -4,6 +4,7 @@ import GithubRepo from './github_repo';
 import GithubLogo from '../../assets/GithubLogo.png';
 import GithubUser from './github_user';
 import { ItemsWrapper, LogoImg } from './styledComponents';
+import { LogoWrapper } from '../../styledComponents';
 
 class GithubContent extends Component {
   constructor(props) {
@@ -66,9 +67,9 @@ class GithubContent extends Component {
     if (!this.state.content) {
       return (
         <div>
-          <div style={{width: '100%'}}>
+          <LogoWrapper>
             <LogoImg src={GithubLogo} />
-          </div>
+          </LogoWrapper>
         </div>
       );
     }
@@ -86,9 +87,9 @@ class GithubContent extends Component {
 
     return (
       <div>
-        <div style={{width: '100%'}}>
+        <LogoWrapper>
           <LogoImg src={GithubLogo} />
-        </div>
+        </LogoWrapper>
         <ItemsWrapper>
           {items}
         </ItemsWrapper>

@@ -4,6 +4,7 @@ import axios from 'axios';
 import SoundCloudItem from './soundcloud_item';
 import SoundcloudLogo from '../../assets/SoundcloudLogo.png';
 import { LogoImg } from './styledComponents';
+import { LogoWrapper } from '../../styledComponents';
 
 let CLIENT_ID = 'NZtb1cCBbHFHV67f1Fp9jkGKog0H4StA';
 
@@ -53,17 +54,17 @@ class SoundcloudContent extends Component {
     if (!this.state.content)
       return (
         <div>
-          <div style={{width: '100%'}}>
+          <LogoWrapper>
             <LogoImg src={SoundcloudLogo} />
-          </div>
+          </LogoWrapper>
         </div>
       );
 
     return (
       <div>
-        <div style={{width: '100%'}}>
+        <LogoWrapper>
           <LogoImg src={SoundcloudLogo} />
-        </div>
+        </LogoWrapper>
         {this.renderItems()}
       </div>
     );

@@ -3,7 +3,7 @@ import axios from 'axios';
 import DailyMotionVideo from './daily_motion_video';
 import DailyMotionLogo from '../../assets/DailyMotionLogo.png';
 import { LogoImg } from './styledComponents';
-
+import { LogoWrapper } from '../../styledComponents';
 class DailyMotionContent extends Component {
   constructor(props) {
     super(props);
@@ -40,35 +40,24 @@ class DailyMotionContent extends Component {
   render() {
     if(this.props.searchTerm !== this.state.prevSearchTerm) this.getContent(this.props.searchTerm);
 
-    if (!this.state.content)
+    if (!this.state.content) {
       return (
         <div>
-          <div style={{width: '100%'}}>
+          <LogoWrapper>
             <LogoImg src={DailyMotionLogo} />
-          </div>
+          </LogoWrapper>
         </div>
       );
-
-      return (
-        <div>
-          <div style={{width: '100%'}}>
-            <LogoImg src={DailyMotionLogo} />
-          </div>
-          {this.renderVideos()}
-        </div>
-      );
-
-    switch (this.state.loadContentType) {
-      case 'item':
-        return (
-          <div>
-            <div style={{width: '100%'}}>
-              <LogoImg src={DailyMotionLogo} />
-            </div>
-            {this.renderVideos()}
-          </div>
-        );
     }
+
+    return (
+      <div>
+        <LogoWrapper>
+          <LogoImg src={DailyMotionLogo} />
+        </LogoWrapper>
+        {this.renderVideos()}
+      </div>
+    );
   }
 };
 

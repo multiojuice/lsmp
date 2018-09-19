@@ -1,5 +1,12 @@
 import styled from 'styled-components';
 
+export const LogoWrapper = styled.div`
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  margin-top: 20px;
+`;
+
 export const TitleText = styled.div`
   margin-top: 20px;
   text-align: center;

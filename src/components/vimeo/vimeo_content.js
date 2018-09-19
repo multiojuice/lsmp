@@ -3,6 +3,7 @@ import axios from 'axios';
 import VimeoVideo from './vimeo_video';
 import VimeoLogo from '../../assets/VimeoLogo.png';
 import { LogoImg } from './styledComponents';
+import { LogoWrapper } from '../../styledComponents';
 
 const ACCESS_TOKEN = '0c9de60ed26319d172042037ae22195e';
 
@@ -52,17 +53,17 @@ class VimeoContent extends Component {
     if (!this.state.content)
       return (
         <div>
-          <div style={{width: '100%'}}>
+          <LogoWrapper>
             <LogoImg src={VimeoLogo} />
-          </div>
+          </LogoWrapper>
         </div>
       );
 
       return (
         <div>
-          <div style={{width: '100%'}}>
+          <LogoWrapper>
             <LogoImg src={VimeoLogo} />
-          </div>
+          </LogoWrapper>
           {this.renderVideos()}
         </div>
       );
@@ -71,9 +72,9 @@ class VimeoContent extends Component {
       case 'item':
         return (
           <div>
-            <div style={{width: '100%'}}>
+            <LogoWrapper>
               <LogoImg src={VimeoLogo} />
-            </div>
+            </LogoWrapper>
             {this.renderVideos()}
           </div>
         );

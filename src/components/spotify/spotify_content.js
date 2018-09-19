@@ -6,6 +6,7 @@ import SpotifyPlaylist from './spotify_playlist';
 import SpotifyTrack from './spotify_track';
 import { LogoImg } from './styledComponents';
 import SpotifyLogo from '../../assets/SpotifyLogo.png';
+import { LogoWrapper } from '../../styledComponents';
 
 let ACCESS_TOKEN = '';
 
@@ -114,10 +115,10 @@ class SpotifyContent extends Component {
     if(!this.state.isSignedIn) {
       return(
         <div>
-          <div style={{width: '100%'}}>
+          <LogoWrapper>
             <LogoImg src={SpotifyLogo} />
             <a href={`https://accounts.spotify.com/authorize?client_id=7c4ef6453595449ea792b8f54c79bcfe&redirect_uri=http:%2F%2F${window.location.host}%2F&response_type=token`}>Click here to enable spotify</a>
-          </div>
+          </LogoWrapper>
         </div>
       );
     }
@@ -125,9 +126,9 @@ class SpotifyContent extends Component {
     if (!this.state.content)
       return (
         <div>
-          <div style={{width: '100%'}}>
+          <LogoWrapper>
             <LogoImg src={SpotifyLogo} />
-          </div>
+          </LogoWrapper>
         </div>
       );
 
@@ -135,9 +136,9 @@ class SpotifyContent extends Component {
       case 'album':
         return (
           <div>
-            <div style={{width: '100%'}}>
+            <LogoWrapper>
               <LogoImg src={SpotifyLogo} />
-            </div>
+            </LogoWrapper>
             {this.renderAlbums()}
           </div>
         );
@@ -145,9 +146,9 @@ class SpotifyContent extends Component {
       case 'artist':
         return (
           <div>
-            <div style={{width: '100%'}}>
+            <LogoWrapper>
               <LogoImg src={SpotifyLogo} />
-            </div>
+            </LogoWrapper>
             {this.renderArtists()}
           </div>
         );
@@ -155,9 +156,9 @@ class SpotifyContent extends Component {
       case 'playlist':
         return (
           <div>
-            <div style={{width: '100%'}}>
+            <LogoWrapper>
               <LogoImg src={SpotifyLogo} />
-            </div>
+            </LogoWrapper>
             {this.renderPlaylists()}
           </div>
         );
@@ -165,9 +166,9 @@ class SpotifyContent extends Component {
       case 'track':
         return (
           <div>
-            <div style={{width: '100%'}}>
+            <LogoWrapper>
               <LogoImg src={SpotifyLogo} />
-            </div>
+            </LogoWrapper>
             {this.renderTracks()}
           </div>
         );

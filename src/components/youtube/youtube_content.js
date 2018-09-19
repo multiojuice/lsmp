@@ -2,6 +2,7 @@ import React from 'react';
 import YoutubeItem from './youtube_item';
 import YoutubeLogo from '../../assets/YoutubeLogo.png';
 import { LogoImg } from './styledComponents'
+import { LogoWrapper } from '../../styledComponents';
 
 const YoutubeContent = (props) => {
 
@@ -15,9 +16,9 @@ const YoutubeContent = (props) => {
 
   return (
     <div>
-      <div>
+      <LogoWrapper>
         <LogoImg src={YoutubeLogo} />
-      </div>
+      </LogoWrapper>
       {videoItems}
     </div>
   );

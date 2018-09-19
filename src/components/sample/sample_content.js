@@ -35,7 +35,7 @@ class SampleContent extends Component {
     if (!this.state.content)
       return (
         <div>
-          <div style={{width: '100%'}}>
+          <LogoWrapper>
             <img className='spotify-logo' src={''} />
           </div>
         </div>
@@ -45,7 +45,7 @@ class SampleContent extends Component {
       case 'item':
         return (
           <div>
-            <div style={{width: '100%'}}>
+            <LogoWrapper>
               <img className='spotify-logo' src={''} />
             </div>
             {this.renderItems()}
