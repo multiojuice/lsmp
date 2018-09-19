@@ -13,6 +13,9 @@ import {
   SpotifySelectedArtist,
   SpotifySelectedPlaylist
 } from './spotify_selected';
+import {
+  AppleMusicSelectedAlbum
+} from './apple_music_selected';
 import { YoutubeSelectedVideo } from './youtube_selected';
 import { SoundcloudSelectedArtist } from './soundcloud_selected';
 import { GithubSelectedRepo, GithubSelectedUser } from './github_selected';
@@ -43,6 +46,9 @@ const SelectedContent = (props) => {
 
     case 'github-user':
       return <GithubSelectedUser data={props.data} />
+
+    case 'apple-album':
+      return <AppleMusicSelectedAlbum data={props.data} />
 
     case 'vimeo-video':
       return (

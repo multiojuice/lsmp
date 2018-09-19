@@ -6,7 +6,7 @@ const AppleMusicAlbum = ({ id, imageUrl, artistName, albumLink, albumName, onSel
   imageUrl = `${imageUrl}300x300bb.jpeg`;
 
   return (
-      <ItemDiv onClick={() => onSelectContent('spotify-album',{id, imageUrl, artistName, albumLink})}>
+      <ItemDiv onClick={() => onSelectContent('apple-album',{id, imageUrl, artistName, albumLink})}>
         <ArtworkImage src={imageUrl}/>
       </ItemDiv>
   );
