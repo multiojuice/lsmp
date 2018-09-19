@@ -16,7 +16,7 @@ export const ItemsWrapper = styled.div`
 export const TitleText = styled.div`
   margin-top: 20px;
   text-align: center;
-  color: #448899;
+  color: #7B9FCF;
   font-size: 14vh;
   font-weight: bold;
   font-family: "Times New Roman", Times, serif;
@@ -47,7 +47,7 @@ export const Button = styled.button`
   font-weight: bold;
   border: 0;
   height: 40px;
-  background-color: #448899;
+  background-color: #8EB1D9;
   border-radius: 5px;
   color: white;
   margin: 0 10px;

@@ -1,12 +1,3 @@
-.skewed-background {
-  padding: 200px 0;
-  -webkit-transform: skew(0deg, -10deg);
-  transform: skew(0deg, -10deg);
-  height: 30%;
-  z-index: -10;
-  position: relative;
-}
-
 /* TOP SECTION STYLES */
 
 .header {
@@ -16,39 +7,8 @@
   width: 100%;
 }
 
-.youtube-video-player {
-  height: 540px;
-  width: 960px;
-  float: right;
-}
-
-.whole-background {
-  top: 0px !important;
-  left: 0px !important;
-}
-
-.background-standard {
-  background: #BBCCDD;
-}
-
-.background-light {
-  background: #88BBBB;
-}
-
-.background-medium {
-  background: #55AAAA;
-}
-
-.background-dark {
-  background: #226666;
-}
-
-.background-base {
-  background: #448899;
-}
-
 body {
-  background-color: #BBCCDD !important;
+  background: url(/src/assets/small_steps.png) repeat 0 0;
 }
 
 .search-bar {
@@ -59,7 +19,7 @@ body {
 
 .search-bar-div {
   padding: 10px;
-  border: 2px solid #448899;
+  border: 2px solid #8EB1D9;
   border-radius: 5px;
   width: 50%;
   display: flex;
@@ -73,7 +33,7 @@ body {
   height: 40px;
   border: none;
   background-color: inherit;
-  color: white;
+  color: #7B9FCF;
   font-weight: bold;
 }
 
@@ -86,9 +46,9 @@ body {
   border: 0;
   height: 40px;
   width: 20%;
-  background-color: #448899;
+  background-color: #8EB1D9;
   border-radius: 5px;
-  color: white;
+  color: #ffffff;
 }
 
 .search-bar img {

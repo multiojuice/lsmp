@@ -55,7 +55,7 @@ export const PreferencesButton = styled.button`
   font-weight: bold;
   border: 0;
   height: 40px;
-  background-color: #448899;
+  background-color: #98B6D4;
   border-radius: 5px;
   color: white;
   flex: 1 0 20px;
