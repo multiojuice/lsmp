@@ -18,8 +18,8 @@ export const TitleText = styled.div`
   text-align: center;
   color: #7B9FCF;
   font-size: 14vh;
-  font-weight: bold;
-  font-family: "Times New Roman", Times, serif;
+  font-weight: 500;
+  font-family: 'Cormorant Garamond', serif;
 `;
 
 export const SearchContent = styled.div`
