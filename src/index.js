@@ -133,10 +133,6 @@ class App extends Component {
           onSelectContent={this.onSelectContent}
           searchTerm={this.state.searchTerm}
           searchType={this.state.preferences.spotify} />
-        <GithubContent
-          onSelectContent={this.onSelectContent}
-          searchTerm={this.state.searchTerm}
-          searchType={this.state.preferences.github} />
       </SearchContent>
     );
   }
@@ -151,6 +147,10 @@ class App extends Component {
           onSelectContent={this.onSelectContent}
           searchTerm={this.state.searchTerm}
           searchType={this.state.preferences.spotify} />
+        <AppleMusicContent
+          onSelectContent={this.onSelectContent}
+          searchTerm={this.state.searchTerm}
+          searchType={this.state.preferences.appleMusic} />
       </SearchContent>
     );
   }

@@ -51,9 +51,10 @@ const SelectedContent = (props) => {
       return <AppleMusicSelectedAlbum data={props.data} />
 
     case 'vimeo-video':
+      let id = (props.data.uri).split('/')[2];
       return (
         <ContentDiv>
-          <iframe src={`https://player.vimeo.com/video/${props.data.id}?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=134035`} width="100%" height="auto" frameBorder="0" title="Nike &quot;The Chance&quot;" webkitallowfullscreen mozallowfullscreen allowFullScreen></iframe>
+          <iframe src={`https://player.vimeo.com/video/${id}?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=134035`} width="100%" height="auto" frameBorder="0" title="Nike &quot;The Chance&quot;" allowFullScreen></iframe>
         </ContentDiv>
 
       );

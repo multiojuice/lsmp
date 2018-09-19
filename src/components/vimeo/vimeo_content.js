@@ -31,7 +31,7 @@ class VimeoContent extends Component {
       return <VimeoVideo
                 onSelectContent={this.state.onSelectContent}
                 embed={item.embed}
-                link={item.link}
+                uri={item.uri}
                 name={item.name}
                 imageUrl={item.pictures.sizes[2].link}
                 userName={item.user.name}
