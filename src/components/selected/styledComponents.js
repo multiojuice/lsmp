@@ -4,6 +4,9 @@ export const ContentDiv = styled.div`
   height: 600px;
   margin: 60px;
   padding: 30px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
 `;
 
 // SPOTIFY COMPONENTS

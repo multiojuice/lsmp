@@ -53,14 +53,15 @@ const SelectedContent = (props) => {
     case 'vimeo-video':
       return (
         <ContentDiv>
-          <div dangerouslySetInnerHTML={{ __html: props.data.embed.html }} />
+          <iframe src={`https://player.vimeo.com/video/${props.data.id}?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=134035`} width="100%" height="auto" frameBorder="0" title="Nike &quot;The Chance&quot;" webkitallowfullscreen mozallowfullscreen allowFullScreen></iframe>
         </ContentDiv>
+
       );
 
     case 'dailymotion-video':
       return (
         <ContentDiv>
-          <div dangerouslySetInnerHTML={{ __html: props.data.embed }} />
+          <iframe frameBorder="0" width="100%" height="100%" src={`//www.dailymotion.com/embed/video/${props.data.id}`} allowFullScreen allow="autoplay"></iframe>
         </ContentDiv>
       );
 
