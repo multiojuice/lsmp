@@ -6,7 +6,7 @@ import AppleMusicArtist from './apple_music_artist';
 import AppleMusicPlaylist from './apple_music_playlist';
 import AppleMusicLogo2 from '../../assets/AppleMusicLogo2.png';
 import { LogoImg } from './styledComponents';
-import { LogoWrapper } from '../../styledComponents';
+import { LogoWrapper, ItemsWrapper } from '../../styledComponents';
 
 const ACCESS_TOKEN = 'eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ijg5N0E1RkE4WkEifQ.eyJpYXQiOjE1MzAxMDUwNjQsImV4cCI6MTU0NTY1NzA2NCwiaXNzIjoiWkY5OUdFOVI1VyJ9.JRN6e__NCO8Yjhj2ynJV20RbPOuNDo9WLcR_lYg1B348ea4BembEqraV53MF-c14jxKYk_0pRjjJlhmF3lkmdw'
 
@@ -123,47 +123,30 @@ class AppleMusicContent extends Component {
         </div>
       );
 
+    let items = null
+
     switch (this.state.loadContentType) {
       case 'albums':
-        return (
-          <div>
-            <LogoWrapper>
-              <LogoImg src={AppleMusicLogo2} />
-            </LogoWrapper>
-            {this.renderAlbums()}
-          </div>
-        );
-
+        items = this.renderAlbums();
+        break;
       case 'artists':
-        return (
-          <div>
-            <LogoWrapper>
-              <LogoImg src={AppleMusicLogo2} />
-            </LogoWrapper>
-            {this.renderArtists()}
-          </div>
-        );
-
+        items = this.renderArtists();
+        break;
       case 'playlists':
-        return (
-          <div>
-            <LogoWrapper>
-              <LogoImg src={AppleMusicLogo2} />
-            </LogoWrapper>
-            {this.renderPlaylists()}
-          </div>
-        );
-
-      // case 'track':
-      //   return (
-      //     <div>
-      //       <LogoWrapper>
-      //         <LogoImg src={SpotifyLogo} />
-      //       </div>
-      //       {this.renderTracks()}
-      //     </div>
-      //   );
+        items = this.renderPlaylists();
+        break;
     }
+
+    return (
+      <div>
+        <LogoWrapper>
+          <LogoImg src={AppleMusicLogo2} />
+        </LogoWrapper>
+        <ItemsWrapper>
+          {items}
+        </ItemsWrapper>
+      </div>
+    )
   }
 };
 

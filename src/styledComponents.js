@@ -7,6 +7,12 @@ export const LogoWrapper = styled.div`
   margin-top: 20px;
 `;
 
+export const ItemsWrapper = styled.div`
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+`;
+
 export const TitleText = styled.div`
   margin-top: 20px;
   text-align: center;

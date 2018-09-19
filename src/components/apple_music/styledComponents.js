@@ -5,10 +5,8 @@ export const LogoImg = styled.img`
 `;
 
 export const ItemDiv = styled.div`
-  float: left;
-  margin: 20px;
-  position: relative;
   height: 300px;
+  margin: 20px;
   :hover {
     -webkit-filter: brightness(30%);
     -webkit-transition: all .5s ease;

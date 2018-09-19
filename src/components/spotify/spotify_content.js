@@ -6,7 +6,7 @@ import SpotifyPlaylist from './spotify_playlist';
 import SpotifyTrack from './spotify_track';
 import { LogoImg } from './styledComponents';
 import SpotifyLogo from '../../assets/SpotifyLogo.png';
-import { LogoWrapper } from '../../styledComponents';
+import { LogoWrapper, ItemsWrapper } from '../../styledComponents';
 
 let ACCESS_TOKEN = '';
 
@@ -132,50 +132,34 @@ class SpotifyContent extends Component {
         </div>
       );
 
+    let items = null;
+
     switch (this.state.loadContentType) {
       case 'album':
-        return (
-          <div>
-            <LogoWrapper>
-              <LogoImg src={SpotifyLogo} />
-            </LogoWrapper>
-            {this.renderAlbums()}
-          </div>
-        );
-
+        items = this.renderAlbums();
+        break;
       case 'artist':
-        return (
-          <div>
-            <LogoWrapper>
-              <LogoImg src={SpotifyLogo} />
-            </LogoWrapper>
-            {this.renderArtists()}
-          </div>
-        );
-
+        items = this.renderArtists();
+        break;
       case 'playlist':
-        return (
-          <div>
-            <LogoWrapper>
-              <LogoImg src={SpotifyLogo} />
-            </LogoWrapper>
-            {this.renderPlaylists()}
-          </div>
-        );
-
+        items = this.renderPlaylists();
+        break;
       case 'track':
-        return (
-          <div>
-            <LogoWrapper>
-              <LogoImg src={SpotifyLogo} />
-            </LogoWrapper>
-            {this.renderTracks()}
-          </div>
-        );
+        items = this.renderTracks();
+      break;
     }
 
+    return (
+      <div>
+        <LogoWrapper>
+          <LogoImg src={SpotifyLogo} />
+        </LogoWrapper>
+        <ItemsWrapper>
+          {items}
+        </ItemsWrapper>
+      </div>
+    );
   }
-
 };
 
 export default SpotifyContent;

@@ -3,7 +3,7 @@ import axios from 'axios';
 import DailyMotionVideo from './daily_motion_video';
 import DailyMotionLogo from '../../assets/DailyMotionLogo.png';
 import { LogoImg } from './styledComponents';
-import { LogoWrapper } from '../../styledComponents';
+import { LogoWrapper, ItemsWrapper } from '../../styledComponents';
 class DailyMotionContent extends Component {
   constructor(props) {
     super(props);
@@ -55,7 +55,9 @@ class DailyMotionContent extends Component {
         <LogoWrapper>
           <LogoImg src={DailyMotionLogo} />
         </LogoWrapper>
-        {this.renderVideos()}
+        <ItemsWrapper>
+          {this.renderVideos()}
+        </ItemsWrapper>
       </div>
     );
   }
