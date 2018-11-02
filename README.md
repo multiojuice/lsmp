@@ -16,6 +16,15 @@ List and explore your favorite media [here](http://lsmp-lsmp.a.csh.rit.edu/)
 * Soundcloud
   * List of searched artists
   * Play-ability of all artist songs
+* Vimeo
+  * Video search
+  * Video Playability
+* Daily Motion
+  * Video search
+  * Video Playability
+* Apple Music
+  * Artist, Song, Album Search
+  * Playability
 
 
 ### Getting Started
